@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoIcon from "@/assets/logo-icon.png";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,8 +32,16 @@ export function Navigation() {
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link href="/">
-            <span className="font-serif italic text-2xl tracking-wide cursor-pointer text-foreground">
-              Itinera
+            <span className="flex items-center gap-2.5 cursor-pointer">
+              <img
+                src={logoIcon}
+                alt="Itinera"
+                className="w-8 h-8 object-contain"
+                data-testid="img-logo"
+              />
+              <span className="font-serif italic text-2xl tracking-wide text-foreground">
+                Itinera
+              </span>
             </span>
           </Link>
 
@@ -40,13 +50,17 @@ export function Navigation() {
             <NavLink href="#itineraries">Itineraries</NavLink>
             <NavLink href="#how-it-works">How it works</NavLink>
             <NavLink href="#guides">Travel Guides</NavLink>
-            
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 font-medium transition-all duration-300">
+            <Button
+              data-testid="button-start-planning"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 font-medium transition-all duration-300"
+              onClick={() => setLocation("/")}
+            >
               Start Planning
             </Button>
           </div>
 
           <button
+            data-testid="button-mobile-menu"
             className="md:hidden text-foreground"
             onClick={() => setMobileMenuOpen(true)}
           >
@@ -63,7 +77,11 @@ export function Navigation() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-3xl flex flex-col"
           >
-            <div className="flex justify-end p-6">
+            <div className="flex items-center justify-between p-6">
+              <span className="flex items-center gap-2.5">
+                <img src={logoIcon} alt="Itinera" className="w-7 h-7 object-contain" />
+                <span className="font-serif italic text-xl tracking-wide text-foreground">Itinera</span>
+              </span>
               <button
                 className="text-foreground"
                 onClick={() => setMobileMenuOpen(false)}

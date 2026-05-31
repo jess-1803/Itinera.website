@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Compass, MapPin } from "lucide-react";
+import { Link } from "wouter";
 import parisImg from "../assets/itineraries/paris.png";
 import tokyoImg from "../assets/itineraries/tokyo.png";
 import swissImg from "../assets/itineraries/swiss.png";
 
 const itineraries = [
   {
+    id: "paris",
     title: "A Taste of Paris",
     image: parisImg,
     duration: "5 Days",
@@ -13,10 +15,11 @@ const itineraries = [
     highlights: [
       "Private Louvre after-hours tour",
       "Michelin-star dining in Marais",
-      "Hidden jazz clubs of Montmartre"
-    ]
+      "Hidden jazz clubs of Montmartre",
+    ],
   },
   {
+    id: "tokyo",
     title: "Tokyo Neon Nights",
     image: tokyoImg,
     duration: "8 Days",
@@ -24,10 +27,11 @@ const itineraries = [
     highlights: [
       "Omakase sushi in Ginza",
       "Midnight photography walk",
-      "Architecture tour of Omotesando"
-    ]
+      "Architecture tour of Omotesando",
+    ],
   },
   {
+    id: "swiss",
     title: "Swiss Alpine Retreat",
     image: swissImg,
     duration: "7 Days",
@@ -35,20 +39,19 @@ const itineraries = [
     highlights: [
       "Glacier Express panoramic journey",
       "Thermal baths in Vals",
-      "Private chalet wine tasting"
-    ]
-  }
+      "Private chalet wine tasting",
+    ],
+  },
 ];
 
 export function CuratedItineraries() {
   return (
     <section id="itineraries" className="py-32 bg-background relative overflow-hidden">
-      {/* Decorative gradient orb */}
       <div className="absolute top-0 left-[-20%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -56,7 +59,7 @@ export function CuratedItineraries() {
           >
             AI-Crafted Journeys
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -64,7 +67,7 @@ export function CuratedItineraries() {
           >
             Itineraries built for <br /><span className="italic">your exact taste.</span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -84,9 +87,10 @@ export function CuratedItineraries() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: i * 0.2 }}
               className="glass-card rounded-2xl overflow-hidden group hover:border-primary/30 transition-colors duration-500 flex flex-col h-full"
+              data-testid={`card-itinerary-${trip.id}`}
             >
               <div className="h-64 relative overflow-hidden">
-                <div 
+                <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{ backgroundImage: `url(${trip.image})` }}
                 />
@@ -95,14 +99,14 @@ export function CuratedItineraries() {
                   {trip.duration}
                 </div>
               </div>
-              
+
               <div className="p-8 flex flex-col flex-1">
                 <div className="flex items-center text-primary text-sm font-medium mb-3">
                   <Compass className="w-4 h-4 mr-2" />
                   {trip.style}
                 </div>
                 <h3 className="text-2xl font-serif text-foreground mb-6">{trip.title}</h3>
-                
+
                 <ul className="space-y-3 mb-8 flex-1">
                   {trip.highlights.map((highlight, j) => (
                     <li key={j} className="flex items-start text-foreground/70 text-sm font-light leading-relaxed">
@@ -111,11 +115,16 @@ export function CuratedItineraries() {
                     </li>
                   ))}
                 </ul>
-                
-                <button className="flex items-center text-foreground hover:text-primary transition-colors font-medium text-sm mt-auto group/btn">
-                  View full itinerary
-                  <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                </button>
+
+                <Link href={`/itinerary/${trip.id}`}>
+                  <button
+                    data-testid={`button-view-itinerary-${trip.id}`}
+                    className="flex items-center text-primary hover:text-primary/80 transition-colors font-medium text-sm mt-auto group/btn"
+                  >
+                    View full itinerary
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                  </button>
+                </Link>
               </div>
             </motion.div>
           ))}
