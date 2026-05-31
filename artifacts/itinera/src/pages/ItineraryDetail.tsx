@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Compass, Users, Calendar, MapPin, ChevronRight } from "lucide-react";
@@ -17,6 +18,10 @@ const IMAGE_MAP: Record<string, string> = {
 export default function ItineraryDetail() {
   const { id } = useParams<{ id: string }>();
   const itinerary = ITINERARIES.find((it) => it.id === id);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [id]);
 
   if (!itinerary) {
     return (

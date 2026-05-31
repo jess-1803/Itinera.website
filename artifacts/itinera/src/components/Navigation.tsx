@@ -8,7 +8,8 @@ import logoIcon from "@/assets/logo-icon.png";
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [, setLocation] = useLocation();
+  const [location] = useLocation();
+  const isHome = location === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,8 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navHref = (anchor: string) => (isHome ? anchor : `/${anchor}`);
 
   return (
     <>
@@ -46,17 +49,18 @@ export function Navigation() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink href="#discover">Discover</NavLink>
-            <NavLink href="#itineraries">Itineraries</NavLink>
-            <NavLink href="#how-it-works">How it works</NavLink>
-            <NavLink href="#guides">Travel Guides</NavLink>
-            <Button
-              data-testid="button-start-planning"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 font-medium transition-all duration-300"
-              onClick={() => setLocation("/")}
-            >
-              Start Planning
-            </Button>
+            <NavLink href={navHref("#discover")}>Discover</NavLink>
+            <NavLink href={navHref("#itineraries")}>Itineraries</NavLink>
+            <NavLink href={navHref("#how-it-works")}>How it works</NavLink>
+            <NavLink href="/journal">Journal</NavLink>
+            <Link href="/">
+              <Button
+                data-testid="button-start-planning"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 font-medium transition-all duration-300"
+              >
+                Start Planning
+              </Button>
+            </Link>
           </div>
 
           <button
@@ -90,10 +94,10 @@ export function Navigation() {
               </button>
             </div>
             <div className="flex-1 flex flex-col items-center justify-center space-y-8 text-2xl font-serif">
-              <MobileNavLink href="#discover" onClick={() => setMobileMenuOpen(false)}>Discover</MobileNavLink>
-              <MobileNavLink href="#itineraries" onClick={() => setMobileMenuOpen(false)}>Itineraries</MobileNavLink>
-              <MobileNavLink href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How it works</MobileNavLink>
-              <MobileNavLink href="#guides" onClick={() => setMobileMenuOpen(false)}>Travel Guides</MobileNavLink>
+              <MobileNavLink href={navHref("#discover")} onClick={() => setMobileMenuOpen(false)}>Discover</MobileNavLink>
+              <MobileNavLink href={navHref("#itineraries")} onClick={() => setMobileMenuOpen(false)}>Itineraries</MobileNavLink>
+              <MobileNavLink href={navHref("#how-it-works")} onClick={() => setMobileMenuOpen(false)}>How it works</MobileNavLink>
+              <MobileNavLink href="/journal" onClick={() => setMobileMenuOpen(false)}>Journal</MobileNavLink>
               <Button className="bg-primary text-primary-foreground mt-4 rounded-full px-8 py-6 text-xl">
                 Start Planning
               </Button>
