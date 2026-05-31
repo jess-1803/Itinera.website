@@ -1,0 +1,79 @@
+uploads = []
+
+[[generated]]
+id = "m4AHRk2eB97eOGLdatCSo"
+uri = "file://artifacts/itinera/src/assets/hero.png"
+type = "image"
+title = "cinematic travel hero image"
+
+[[generated]]
+id = "TIi3p25s3PHSEmTtLDun6"
+uri = "file://artifacts/itinera/src/assets/destinations/kyoto.png"
+type = "image"
+title = "Kyoto destination image"
+
+[[generated]]
+id = "MWKFlVt88IGPcho060eMs"
+uri = "file://artifacts/itinera/src/assets/destinations/amalfi.png"
+type = "image"
+title = "Amalfi coast destination"
+
+[[generated]]
+id = "QnQK6kCmhp6MnyTDGv0lK"
+uri = "file://artifacts/itinera/src/assets/destinations/morocco.png"
+type = "image"
+title = "Morocco destination image"
+
+[[generated]]
+id = "X1X3tMsupBv32ywa0Elvn"
+uri = "file://artifacts/itinera/src/assets/destinations/iceland.png"
+type = "image"
+title = "Iceland destination image"
+
+[[generated]]
+id = "9AoCq63-QNQ8NgD9RRG53"
+uri = "file://artifacts/itinera/src/assets/destinations/bali.png"
+type = "image"
+title = "Bali destination image"
+
+[[generated]]
+id = "tOSM7RkdVWdGU_MCoOqga"
+uri = "file://artifacts/itinera/src/assets/destinations/patagonia.png"
+type = "image"
+title = "Patagonia destination image"
+
+[[generated]]
+id = "7bhYNwEOzr40RJXKL7fW5"
+uri = "file://artifacts/itinera/src/assets/itineraries/paris.png"
+type = "image"
+title = "Paris itinerary cover"
+
+[[generated]]
+id = "OvO4rxuetAsbl8b2yhFTk"
+uri = "file://artifacts/itinera/src/assets/itineraries/tokyo.png"
+type = "image"
+title = "Tokyo itinerary cover"
+
+[[generated]]
+id = "6B7h4N2q72JATY8CyqeZS"
+uri = "file://artifacts/itinera/src/assets/itineraries/swiss.png"
+type = "image"
+title = "Swiss Alps itinerary"
+
+[[outputs]]
+id = "yOOKQZ-ZMef0i23wMo7-J"
+uri = "file://artifacts/itinera/src/assets/journal/architecture.jpg"
+type = "image"
+title = "minimalist modern architecture, clean lines, subtle warm lighting"
+
+[[outputs]]
+id = "vCAD67YwTqzlffqUaVuuv"
+uri = "file://artifacts/itinera/src/assets/journal/wilderness.jpg"
+type = "image"
+title = "deep dark water fjords in Patagonia, dramatic cliffs, misty morning"
+
+[[outputs]]
+id = "L4E6ggujsCMDxQ7RIzPRR"
+uri = "file://artifacts/itinera/src/assets/journal/culture.jpg"
+type = "image"
+title = "Moroccan riad intricate tile work and courtyards, deep terracotta colors"
