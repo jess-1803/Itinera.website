@@ -7,6 +7,9 @@ import Home from "@/pages/Home";
 import ItineraryDetail from "@/pages/ItineraryDetail";
 import Journal from "@/pages/Journal";
 import StoryDetail from "@/pages/StoryDetail";
+import About from "@/pages/About";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +20,9 @@ function Router() {
       <Route path="/itinerary/:id" component={ItineraryDetail} />
       <Route path="/journal" component={Journal} />
       <Route path="/journal/:slug" component={StoryDetail} />
+      <Route path="/about" component={About} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );
