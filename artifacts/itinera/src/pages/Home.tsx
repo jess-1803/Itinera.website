@@ -5,7 +5,7 @@ import { CuratedItineraries } from "@/components/CuratedItineraries";
 import { AIPlanning } from "@/components/AIPlanning";
 import { TravelInspiration } from "@/components/TravelInspiration";
 import { HowItWorks } from "@/components/HowItWorks";
-import { FutureDeals } from "@/components/FutureDeals";
+import { Marketplace } from "@/components/Marketplace";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
 
@@ -18,8 +18,8 @@ export default function Home() {
       <CuratedItineraries />
       <AIPlanning />
       <HowItWorks />
+      <Marketplace />
       <TravelInspiration />
-      <FutureDeals />
       <Newsletter />
       <Footer />
     </main>

@@ -1,17 +1,20 @@
 import { motion } from "framer-motion";
-import { Sparkles, Send } from "lucide-react";
+import { Sparkles, Apple, Smartphone } from "lucide-react";
+import appMapImg from "@assets/IMG_6142_1780216591749.jpg";
+import appPlacesImg from "@assets/IMG_6141_1780216591749.jpg";
+import appPlanImg from "@assets/IMG_6140_1780216591749.jpg";
 
 export function AIPlanning() {
   return (
-    <section className="py-32 relative overflow-hidden bg-background">
-      {/* Background elements */}
+    <section id="ai-planning" className="py-32 relative overflow-hidden bg-background">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-card to-background z-0" />
       <div className="absolute right-[-10%] top-[20%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] z-0" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          <motion.div 
+
+          {/* Left: Copy */}
+          <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -22,16 +25,16 @@ export function AIPlanning() {
               <Sparkles className="w-3 h-3 mr-2" />
               Intelligence meets taste
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight mb-8">
               A travel planner that <br />
               <span className="italic text-primary">actually knows you.</span>
             </h2>
-            
+
             <div className="space-y-8 mb-10">
               <div className="flex">
                 <div className="flex flex-col items-center mr-6">
-                  <div className="w-8 h-8 rounded-full bg-card border border-primary/20 flex items-center justify-center text-primary font-medium text-sm">1</div>
+                  <div className="w-8 h-8 rounded-full bg-card border border-primary/20 flex items-center justify-center text-primary font-medium text-sm shrink-0">1</div>
                   <div className="w-[1px] h-16 bg-gradient-to-b from-primary/30 to-transparent my-2" />
                 </div>
                 <div>
@@ -39,10 +42,10 @@ export function AIPlanning() {
                   <p className="text-foreground/60 font-light leading-relaxed">No generic forms. Just chat with our AI about what makes a perfect trip for you. Architecture? Natural wine? Boutique hotels?</p>
                 </div>
               </div>
-              
+
               <div className="flex">
                 <div className="flex flex-col items-center mr-6">
-                  <div className="w-8 h-8 rounded-full bg-card border border-primary/20 flex items-center justify-center text-primary font-medium text-sm">2</div>
+                  <div className="w-8 h-8 rounded-full bg-card border border-primary/20 flex items-center justify-center text-primary font-medium text-sm shrink-0">2</div>
                   <div className="w-[1px] h-16 bg-gradient-to-b from-primary/30 to-transparent my-2" />
                 </div>
                 <div>
@@ -50,97 +53,123 @@ export function AIPlanning() {
                   <p className="text-foreground/60 font-light leading-relaxed">Within seconds, receive a beautiful, magazine-quality itinerary tailored to your exact pacing and style preferences.</p>
                 </div>
               </div>
-              
+
               <div className="flex">
                 <div className="flex flex-col items-center mr-6">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-medium text-sm shadow-[0_0_15px_rgba(232,25,106,0.4)]">3</div>
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-medium text-sm shrink-0 shadow-[0_0_15px_rgba(232,25,106,0.4)]">3</div>
                 </div>
                 <div>
-                  <h4 className="text-xl font-medium text-foreground mb-2">Refine and book</h4>
-                  <p className="text-foreground/60 font-light leading-relaxed">Tweak the details directly on the canvas. When perfect, our concierges secure your exclusive rates.</p>
+                  <h4 className="text-xl font-medium text-foreground mb-2">Save, share & explore</h4>
+                  <p className="text-foreground/60 font-light leading-relaxed">Save destinations to your map, build collections, and take everything on the road with the Itinera app.</p>
                 </div>
               </div>
             </div>
+
+            {/* Download CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="#"
+                data-testid="button-app-store"
+                className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 hover:scale-105 group"
+              >
+                <Apple className="w-6 h-6 shrink-0" />
+                <div className="text-left">
+                  <p className="text-[10px] font-medium opacity-70 leading-none mb-0.5">Download on the</p>
+                  <p className="text-sm font-semibold leading-none">App Store</p>
+                </div>
+              </a>
+              <a
+                href="#"
+                data-testid="button-google-play"
+                className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-white/20 text-foreground hover:border-primary/40 hover:text-primary transition-all duration-300 hover:scale-105"
+              >
+                <Smartphone className="w-6 h-6 shrink-0" />
+                <div className="text-left">
+                  <p className="text-[10px] font-medium opacity-70 leading-none mb-0.5">Get it on</p>
+                  <p className="text-sm font-semibold leading-none">Google Play</p>
+                </div>
+              </a>
+            </div>
           </motion.div>
 
-          {/* Interactive Chat Mockup */}
-          <motion.div 
+          {/* Right: App Screenshots */}
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative perspective-1000"
+            className="relative flex items-center justify-center h-[600px]"
           >
-            <div className="glass-card rounded-3xl p-6 md:p-8 shadow-2xl relative z-10 border border-white/10 rotate-y-[-5deg] rotate-x-[2deg] transform-gpu">
-              
-              {/* Header */}
-              <div className="flex items-center justify-between pb-6 border-b border-white/5 mb-6">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
-                    <Sparkles className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h5 className="text-foreground font-medium">Itinera AI</h5>
-                    <span className="text-xs text-primary flex items-center">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary mr-1.5 animate-pulse" />
-                      Online
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Ambient glow */}
+            <div className="absolute inset-0 bg-primary/15 blur-[80px] rounded-full" />
 
-              {/* Chat Body */}
-              <div className="space-y-6 mb-8 h-[300px] overflow-hidden relative">
-                <div className="flex flex-col space-y-4">
-                  
-                  <div className="self-end bg-card border border-white/5 rounded-2xl rounded-tr-sm p-4 max-w-[85%] text-sm font-light text-foreground/90 shadow-sm">
-                    I want to go to Japan in October for 10 days. I love brutalist architecture, quiet tea houses, and high-end sushi. I hate tourist traps.
-                  </div>
-                  
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1 }}
-                    className="self-start bg-primary/10 border border-primary/20 rounded-2xl rounded-tl-sm p-5 max-w-[90%]"
-                  >
-                    <p className="text-sm font-light text-foreground/90 leading-relaxed mb-4">
-                      A beautiful choice. October offers crisp air and autumn colors. Let's build a route focused on design and culinary excellence, avoiding the golden route crowds.
-                    </p>
-                    
-                    <div className="bg-background/50 rounded-xl p-3 border border-white/5 flex items-center cursor-pointer hover:bg-background/80 transition-colors">
-                      <div className="w-12 h-12 rounded-lg bg-card bg-cover bg-center mr-4 shrink-0" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1542051812871-75f10255291f?q=80&w=200&auto=format&fit=crop')" }} />
-                      <div>
-                        <h6 className="text-sm font-medium text-foreground">Draft: Shadows of Honshu</h6>
-                        <p className="text-xs text-foreground/50">10 days • Tokyo, Kanazawa, Naoshima</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-                
-                {/* Fade out bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-card/50 to-transparent" />
-              </div>
+            {/* Left phone — Map */}
+            <motion.div
+              initial={{ opacity: 0, x: -30, rotate: -8 }}
+              whileInView={{ opacity: 1, x: 0, rotate: -8 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.4 }}
+              className="absolute left-0 top-10 z-10"
+              style={{ transform: "rotate(-8deg) translateX(10px)" }}
+            >
+              <PhoneFrame src={appMapImg} alt="Itinera map view" width={200} />
+            </motion.div>
 
-              {/* Input */}
-              <div className="bg-background/50 border border-white/10 rounded-full p-2 pl-6 flex items-center">
-                <input 
-                  type="text" 
-                  placeholder="Ask anything..." 
-                  className="bg-transparent border-0 flex-1 text-sm text-foreground focus:outline-none placeholder:text-foreground/40 font-light"
-                  disabled
-                />
-                <button className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shrink-0 hover:scale-105 transition-transform">
-                  <Send className="w-4 h-4 ml-0.5" />
-                </button>
-              </div>
-            </div>
-            
-            {/* Ambient glow behind mockup */}
-            <div className="absolute inset-0 bg-primary/20 blur-[80px] -z-10 rounded-full" />
+            {/* Centre phone — Plan/AI (front) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.2 }}
+              className="relative z-20"
+            >
+              <PhoneFrame src={appPlanImg} alt="Itinera AI planner" width={240} shadow />
+            </motion.div>
+
+            {/* Right phone — Places */}
+            <motion.div
+              initial={{ opacity: 0, x: 30, rotate: 8 }}
+              whileInView={{ opacity: 1, x: 0, rotate: 8 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.4 }}
+              className="absolute right-0 top-10 z-10"
+              style={{ transform: "rotate(8deg) translateX(-10px)" }}
+            >
+              <PhoneFrame src={appPlacesImg} alt="Itinera places view" width={200} />
+            </motion.div>
           </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+function PhoneFrame({
+  src,
+  alt,
+  width,
+  shadow,
+}: {
+  src: string;
+  alt: string;
+  width: number;
+  shadow?: boolean;
+}) {
+  return (
+    <div
+      className={`relative rounded-[2.5rem] overflow-hidden border-2 border-white/20 bg-black ${shadow ? "shadow-[0_30px_80px_rgba(0,0,0,0.6)]" : "shadow-[0_20px_50px_rgba(0,0,0,0.5)]"}`}
+      style={{ width, aspectRatio: "9/19" }}
+    >
+      {/* Notch */}
+      <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10" />
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+        draggable={false}
+      />
+      {/* Screen shine */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent pointer-events-none" />
+    </div>
   );
 }
