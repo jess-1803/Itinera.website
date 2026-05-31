@@ -1,101 +1,229 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Lock, Tag, Plane, Hotel, Compass, Star, ArrowRight, Sparkles } from "lucide-react";
+import { Tag, Plane, Hotel, Compass, Sparkles, Copy, Check, ExternalLink, Clock } from "lucide-react";
 
-type Category = "All" | "Hotels" | "Flights" | "Activities" | "Experiences";
+type Category = "All" | "Connectivity" | "Hotels" | "Flights" | "Activities" | "Experiences";
 
-interface Deal {
+interface ActiveDeal {
+  kind: "active";
   id: string;
   category: Category;
   title: string;
   description: string;
   discount: string;
+  code: string;
   partner: string;
-  rating: number;
-  locked: boolean;
+  link?: string;
   badge?: string;
 }
 
+interface ComingSoonDeal {
+  kind: "coming-soon";
+  id: string;
+  category: Category;
+  title: string;
+  description: string;
+  partner: string;
+}
+
+type Deal = ActiveDeal | ComingSoonDeal;
+
 const DEALS: Deal[] = [
   {
-    id: "1",
+    kind: "active",
+    id: "airalo",
+    category: "Connectivity",
+    title: "Airalo — Global eSIMs",
+    description: "Stay connected anywhere in the world without roaming fees. eSIMs for 200+ countries, activated instantly before you fly.",
+    discount: "10% off",
+    code: "ITINERA10",
+    partner: "Airalo",
+    link: "https://www.airalo.com/?p=itinera&code=ITINERA10&irclickid=UYMxlP1bsxyZT0A1oEw2l36rUkuWUrxOnXmrQc0&irgwc=1&afsrc=1&utm_source=impact&utm_medium=affiliate&utm_campaign=Itinera&utm_content&utm_term",
+    badge: "Live deal",
+  },
+  {
+    kind: "active",
+    id: "holafly",
+    category: "Connectivity",
+    title: "Holafly — Unlimited Data eSIMs",
+    description: "Unlimited data eSIMs for over 170 destinations. No top-ups, no surprises — just seamless connectivity from the moment you land.",
+    discount: "10% off",
+    code: "ITINERA",
+    partner: "Holafly",
+    badge: "Live deal",
+  },
+  {
+    kind: "coming-soon",
+    id: "hotels",
     category: "Hotels",
-    title: "Ace Hotel Kyoto",
-    description: "Design-forward rooms in a Kengo Kuma building at the heart of the city.",
-    discount: "20% off",
-    partner: "Direct rate",
-    rating: 4.9,
-    locked: false,
-    badge: "Members only",
+    title: "Boutique Hotel Rates",
+    description: "Exclusive member rates at hand-picked design hotels and hidden retreats worldwide.",
+    partner: "Coming soon",
   },
   {
-    id: "2",
+    kind: "coming-soon",
+    id: "flights",
     category: "Flights",
-    title: "Business Class Upgrade",
-    description: "Complimentary upgrade to Business on long-haul routes with Singapore Airlines.",
-    discount: "Save £400+",
-    partner: "Singapore Airlines",
-    rating: 4.8,
-    locked: false,
-    badge: "Exclusive",
+    title: "Flight Upgrades & Fares",
+    description: "Premium cabin upgrades and exclusive fares with our airline partners.",
+    partner: "Coming soon",
   },
   {
-    id: "3",
+    kind: "coming-soon",
+    id: "activities",
     category: "Activities",
-    title: "After-Hours Louvre Access",
-    description: "Private guided tour of the Louvre with no crowds — after the doors close to the public.",
-    discount: "30% off",
-    partner: "Context Travel",
-    rating: 5.0,
-    locked: true,
+    title: "Curated Experiences",
+    description: "Skip-the-queue access and private tours at the world's most sought-after cultural sites.",
+    partner: "Coming soon",
   },
   {
-    id: "4",
+    kind: "coming-soon",
+    id: "experiences",
     category: "Experiences",
-    title: "Private Villa — Santorini",
-    description: "Clifftop villa with infinity pool in Oia. Member rates not available anywhere else.",
-    discount: "25% off",
-    partner: "Smith Hotels",
-    rating: 4.9,
-    locked: true,
-  },
-  {
-    id: "5",
-    category: "Activities",
-    title: "Marrakech Cooking Masterclass",
-    description: "Private half-day class in a traditional riad with a local chef. Souk tour included.",
-    discount: "15% off",
-    partner: "La Maison Arabe",
-    rating: 4.7,
-    locked: true,
-  },
-  {
-    id: "6",
-    category: "Experiences",
-    title: "Glacier Expedition, Patagonia",
-    description: "Guided boat expedition to Grey Glacier with a certified wilderness guide.",
-    discount: "Save $180",
-    partner: "Explora Patagonia",
-    rating: 4.9,
-    locked: true,
+    title: "Private & Luxury Add-ons",
+    description: "From private villas to guided wilderness expeditions — unforgettable experiences at member prices.",
+    partner: "Coming soon",
   },
 ];
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
+  Connectivity: <Sparkles className="w-4 h-4" />,
   Hotels: <Hotel className="w-4 h-4" />,
   Flights: <Plane className="w-4 h-4" />,
   Activities: <Compass className="w-4 h-4" />,
-  Experiences: <Sparkles className="w-4 h-4" />,
+  Experiences: <Tag className="w-4 h-4" />,
 };
 
-const CATEGORIES: Category[] = ["All", "Hotels", "Flights", "Activities", "Experiences"];
+const CATEGORIES: Category[] = ["All", "Connectivity", "Hotels", "Flights", "Activities", "Experiences"];
+
+function CodeBadge({ code }: { code: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <button
+      onClick={handleCopy}
+      className="flex items-center gap-2 bg-background/60 border border-primary/25 rounded-xl px-4 py-2.5 w-full hover:border-primary/50 transition-colors group"
+      title="Click to copy code"
+    >
+      <span className="text-xs text-foreground/50 font-medium uppercase tracking-widest shrink-0">Code</span>
+      <span className="flex-1 text-center font-mono text-sm font-bold text-primary tracking-widest">{code}</span>
+      <span className="shrink-0 text-foreground/40 group-hover:text-primary transition-colors">
+        {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+      </span>
+    </button>
+  );
+}
+
+function ActiveDealCard({ deal, index }: { deal: ActiveDeal; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      data-testid={`card-deal-${deal.id}`}
+      className="rounded-2xl overflow-hidden hover:shadow-[0_0_40px_rgba(232,25,106,0.18)] transition-all duration-300"
+      style={{
+        background: "linear-gradient(135deg, rgba(80, 10, 40, 0.55), rgba(60, 8, 30, 0.45))",
+        border: "1px solid rgba(232,25,106,0.2)",
+      }}
+    >
+      <div className="p-6">
+        {/* Top row */}
+        <div className="flex items-start justify-between mb-5">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-primary">
+              {CATEGORY_ICONS[deal.category] ?? <Tag className="w-4 h-4" />}
+            </div>
+            <span className="text-foreground/50 text-xs font-medium uppercase tracking-wide">{deal.category}</span>
+          </div>
+          <div className="flex flex-col items-end gap-1">
+            <span className="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-[0_0_12px_rgba(232,25,106,0.4)]">
+              {deal.discount}
+            </span>
+            {deal.badge && (
+              <span className="text-primary/70 text-[10px] font-semibold uppercase tracking-wider">{deal.badge}</span>
+            )}
+          </div>
+        </div>
+
+        <h3 className="text-xl font-serif text-foreground mb-2 leading-snug">{deal.title}</h3>
+        <p className="text-foreground/60 text-sm font-light leading-relaxed mb-6">{deal.description}</p>
+
+        {/* Code */}
+        <div className="mb-4">
+          <CodeBadge code={deal.code} />
+        </div>
+
+        {/* CTA */}
+        {deal.link && (
+          <a
+            href={deal.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid={`button-shop-${deal.id}`}
+            className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 rounded-xl text-sm transition-all duration-300 hover:scale-[1.02]"
+          >
+            Shop {deal.partner}
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+function ComingSoonCard({ deal, index }: { deal: ComingSoonDeal; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.6, delay: index * 0.08 }}
+      data-testid={`card-deal-${deal.id}`}
+      className="rounded-2xl overflow-hidden opacity-50"
+      style={{
+        background: "rgba(40, 5, 20, 0.35)",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
+      <div className="p-6">
+        <div className="flex items-start justify-between mb-5">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-foreground/30">
+              {CATEGORY_ICONS[deal.category] ?? <Tag className="w-4 h-4" />}
+            </div>
+            <span className="text-foreground/35 text-xs font-medium uppercase tracking-wide">{deal.category}</span>
+          </div>
+          <span className="flex items-center gap-1.5 text-foreground/35 text-xs font-medium border border-white/8 rounded-full px-3 py-1">
+            <Clock className="w-3 h-3" />
+            Coming soon
+          </span>
+        </div>
+
+        <h3 className="text-xl font-serif text-foreground/50 mb-2 leading-snug">{deal.title}</h3>
+        <p className="text-foreground/35 text-sm font-light leading-relaxed mb-6">{deal.description}</p>
+
+        <div className="h-11 rounded-xl bg-white/4 border border-white/6" />
+      </div>
+    </motion.div>
+  );
+}
 
 export function Marketplace() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
 
-  const filtered = activeCategory === "All"
-    ? DEALS
-    : DEALS.filter((d) => d.category === activeCategory);
+  const filtered =
+    activeCategory === "All"
+      ? DEALS
+      : DEALS.filter((d) => d.category === activeCategory);
 
   return (
     <section className="py-32 bg-card/20 relative border-y border-white/5" id="marketplace">
@@ -107,32 +235,17 @@ export function Marketplace() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6"
+          className="mb-16"
         >
-          <div className="max-w-2xl">
-            <span className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block">
-              The Marketplace
-            </span>
-            <h2 className="text-4xl md:text-5xl font-serif text-foreground leading-tight mb-4">
-              Travel deals, <span className="italic">curated for you.</span>
-            </h2>
-            <p className="text-foreground/60 font-light text-lg leading-relaxed max-w-lg">
-              Exclusive rates, member perks, and hand-picked affiliate offers across hotels, flights, activities, and experiences worldwide.
-            </p>
-          </div>
-          <div className="flex flex-col items-end gap-2">
-            <div className="flex items-center gap-2 text-xs text-foreground/40">
-              <Lock className="w-3 h-3" />
-              <span>Sign in to unlock member deals</span>
-            </div>
-            <button
-              data-testid="button-browse-deals"
-              className="flex items-center text-primary text-sm font-medium hover:text-primary/80 transition-colors group"
-            >
-              Browse all deals
-              <ArrowRight className="w-4 h-4 ml-1.5 transition-transform group-hover:translate-x-1" />
-            </button>
-          </div>
+          <span className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block">
+            The Marketplace
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif text-foreground leading-tight mb-4">
+            Travel deals, <span className="italic">curated for you.</span>
+          </h2>
+          <p className="text-foreground/60 font-light text-lg leading-relaxed max-w-lg">
+            Exclusive discount codes and partner offers — use them directly, no account needed. More deals added as we grow.
+          </p>
         </motion.div>
 
         {/* Category pills */}
@@ -162,110 +275,14 @@ export function Marketplace() {
 
         {/* Deal grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((deal, i) => (
-            <motion.div
-              key={deal.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              data-testid={`card-deal-${deal.id}`}
-              className={`relative group rounded-2xl overflow-hidden transition-all duration-300 ${
-                deal.locked
-                  ? "opacity-70 hover:opacity-90"
-                  : "hover:border-primary/30 hover:shadow-[0_0_30px_rgba(232,25,106,0.12)]"
-              }`}
-              style={{
-                background: "rgba(60, 8, 30, 0.4)",
-                backdropFilter: "blur(20px)",
-                border: "1px solid rgba(255,255,255,0.08)",
-              }}
-            >
-              {/* Lock overlay */}
-              {deal.locked && (
-                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-background/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center mb-3">
-                    <Lock className="w-5 h-5 text-primary" />
-                  </div>
-                  <p className="text-foreground text-sm font-medium">Sign in to unlock</p>
-                  <p className="text-foreground/50 text-xs mt-1">Free membership required</p>
-                </div>
-              )}
-
-              <div className="p-6">
-                {/* Top row */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-primary/15 border border-primary/20 flex items-center justify-center text-primary">
-                      {CATEGORY_ICONS[deal.category] ?? <Tag className="w-4 h-4" />}
-                    </div>
-                    <span className="text-foreground/50 text-xs font-medium uppercase tracking-wide">
-                      {deal.category}
-                    </span>
-                  </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <span className="bg-primary/15 text-primary text-xs font-semibold px-2.5 py-1 rounded-full border border-primary/25">
-                      {deal.discount}
-                    </span>
-                    {deal.badge && (
-                      <span className="text-foreground/40 text-[10px] font-medium">{deal.badge}</span>
-                    )}
-                  </div>
-                </div>
-
-                <h3 className="text-lg font-serif text-foreground mb-2 leading-snug">
-                  {deal.title}
-                </h3>
-                <p className="text-foreground/55 text-sm font-light leading-relaxed mb-5">
-                  {deal.description}
-                </p>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-white/6">
-                  <div className="flex items-center gap-1.5">
-                    <div className="flex">
-                      {[...Array(5)].map((_, j) => (
-                        <Star
-                          key={j}
-                          className={`w-3 h-3 ${j < Math.floor(deal.rating) ? "text-primary fill-primary" : "text-foreground/20"}`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-foreground/50 text-xs">{deal.rating}</span>
-                  </div>
-                  <span className="text-foreground/40 text-xs">{deal.partner}</span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {filtered.map((deal, i) =>
+            deal.kind === "active" ? (
+              <ActiveDealCard key={deal.id} deal={deal} index={i} />
+            ) : (
+              <ComingSoonCard key={deal.id} deal={deal} index={i} />
+            )
+          )}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <div
-            className="inline-flex flex-col sm:flex-row items-center gap-6 px-10 py-8 rounded-3xl"
-            style={{
-              background: "linear-gradient(135deg, rgba(60, 8, 30, 0.6), rgba(80, 10, 40, 0.5))",
-              border: "1px solid rgba(255,255,255,0.1)",
-            }}
-          >
-            <div className="text-left">
-              <p className="text-foreground font-medium mb-1">Unlock all {DEALS.length} deals — free membership</p>
-              <p className="text-foreground/50 text-sm font-light">More partners added every week. No card required.</p>
-            </div>
-            <button
-              data-testid="button-join-marketplace"
-              className="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-full text-sm transition-all duration-300 hover:scale-105 shrink-0 whitespace-nowrap"
-            >
-              Join for free
-            </button>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
