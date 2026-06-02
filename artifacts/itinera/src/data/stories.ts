@@ -49,180 +49,316 @@ export const STORIES: Story[] = [
       {
         type: "pullquote",
         content:
-          "In Tokyo, the spaces between buildings are as considered as the buildings themselves. Emptiness here is not absence — it is presence, carefully held.",
+          "In Tokyo's best spaces, less is not a design choice. It is a moral position.",
       },
       {
         type: "paragraph",
         content:
-          "From Yanaka I walked south through Ueno, past the national museums closed at that hour, down into Akihabara — a useful antidote to tranquillity, walls of blinking electronics and anime merchandise — and then into the Kanda district, where a stretch of secondhand bookshops called Jimbocho has been quietly outlasting the digital age for more than a century.",
+          "From there I went to Omotesando, which is often described as Tokyo's Champs-Élysées, which is like describing the moon as Earth's suburb. The comparison gets the geography right and misses everything else. What Omotesando does — what Kengo Kuma and Tadao Ando and SANAA have done along its ginkgo-lined length — is demonstrate that luxury and restraint are not opposites but complements. The Prada building by Herzog & de Meuron is a lattice of glass bubbles. The TOD'S building by Toyo Ito is a concrete tree. Neither announces itself. Both stop you dead.",
       },
       {
         type: "subheading",
-        content: "Omotesando: Architecture as Performance",
+        content: "What Disappears",
       },
       {
         type: "paragraph",
         content:
-          "The afternoon belonged to Omotesando. This is where Tokyo puts its architecture on parade: Herzog & de Meuron's Prada building in its diamond-paned glass, Toyo Ito's Tod's with its tree-column facade reading like an abstract print, Kengo Kuma's Nezu Museum tucked behind a bamboo screen at the boulevard's eastern end. Each building is a statement. Together they form something rarer: an argument about what a city can be.",
+          "The afternoon brought me to the 21_21 Design Sight in Roppongi, a building that is more underground than above, as if its ambitions were directional rather than vertical. The current exhibition involved a single room, a single material, a single question posed on a white card: what does it mean to hold something? I stayed for forty minutes. I don't know what that says about me.",
       },
       {
         type: "paragraph",
         content:
-          "I lingered longest at the Nezu Museum. Kuma designed it as a disappearing act — the building recedes behind its bamboo, the entrance corridor narrows until you feel yourself exhaling without knowing why, and then the garden opens behind the galleries and you are standing in Edo-period silence with the city entirely gone. This is the magic trick Tokyo's best architects have always known: the city's noise makes the quiet louder.",
-      },
-      {
-        type: "subheading",
-        content: "The Second Evening",
+          "By evening I had arrived at the thing Tokyo does best: the omakase counter. Twelve seats, no menu, no choices, complete trust. The chef's name was Hiroshi and he worked with the concentration of a surgeon and the warmth of someone who has been feeding people his whole life. The fish came from the market that morning. He told me which boats. I ate for two hours and said almost nothing and left understanding more about hospitality than I had from any hotel I'd ever stayed in.",
       },
       {
         type: "paragraph",
         content:
-          "Dinner, both nights, at counters. A ramen bar in Golden Gai so narrow that brushing past someone requires a kind of agreed-upon choreography. An omakase counter in Ginza where the chef worked with the focused quiet of a calligrapher, eight courses across two hours, each plate a composition more than a meal. The bill was extravagant. It was worth every cent.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "On my final morning I went back to the Nezu Shrine. The light was the same oblique grey. The woman with the chrysanthemum was gone. A single bird was doing something intricate in a pine tree. Tokyo is a city that will overwhelm you if you let it. The secret — and it feels like a secret worth protecting — is that it will also ask you, very quietly, to be still.",
+          "The city had taught me what I should have already known: that the places worth travelling to are the ones that give you less to look at and more to feel. Tokyo, at its quietest, is the loudest place I have ever been.",
       },
     ],
   },
   {
-    slug: "patagonia-fjords",
+    slug: "patagonia-silence",
     title: "The Silent Fjords of Patagonia",
-    category: "Wilderness",
-    readTime: "8 min read",
+    category: "Wilderness & Nature",
+    readTime: "6 min read",
     publishedDate: "March 2025",
     author: "Itinera Editorial",
     imageKey: "wilderness",
     excerpt:
-      "At the end of the world, silence is not the absence of sound. It is a presence — dense, physical, and strangely companionable.",
+      "To travel to Patagonia in the shoulder season is to make a bet that discomfort will pay dividends. It does. The dividends are extraordinary.",
     body: [
       {
         type: "paragraph",
         content:
-          "The Patagonian wind has no manners. It arrives without warning, from directions that do not appear on compasses, and when it hits you — truly hits you, at the crest of a ridge above Lago Grey — it is not weather but argument. It disagrees with your presence. It would prefer you elsewhere. You stay anyway, because behind you is a glacier the colour of antifreeze and ahead of you is nothing but sky and it is the most alive you have felt in years.",
+          "The boat left Natales at five in the morning, which is to say it left before light, before coffee, before the brain had agreed to be conscious. The crew of five moved around each other with the efficiency of people who have done this in darkness many times. I stood at the stern and watched the lights of the town disappear behind a headland, and then there was only the Última Esperanza Sound — Last Hope, in translation — and the absolute black of a Patagonian winter night.",
       },
       {
         type: "paragraph",
         content:
-          "I had come to Torres del Paine in shoulder season, late April, when the summer crowds have gone and the park begins to reassert itself. The tourist infrastructure remains — refugios still serving their leaden bread and instant coffee, the same weatherproof gear drying on the same communal lines — but the trails are yours. You walk for six hours and the only other human you see is a ranger on horseback, far below, working with the unhurried economy of someone who has long since made peace with the landscape.",
+          "I had come in May, which is the beginning of the southern autumn and the end of the tourist season. The guanacos were still on the hillsides. The pumas were, somewhere, doing whatever pumas do in the dark. Torres del Paine had shed most of its visitors like a tree sheds leaves, and what remained was the park as it actually is: enormous, indifferent, and more beautiful than anything that could be planned.",
       },
       {
         type: "subheading",
-        content: "The Geography of the Extreme",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Patagonia is not a single place. It is a condition. The region spreads across the bottom quarter of South America — Chilean and Argentine in equal parts, if you ask the maps, though the land itself seems indifferent to the distinction. To the west, the channels: a labyrinth of fjords and islands so complex that the Spanish spent decades trying to chart them and gave up twice. To the east, the steppe: flat, pale, merciless, stretching to the Atlantic without apology. Between them, the mountains. The Andes here lose their composure and become something feverish — granite towers, ice fields, valleys carved by glaciers that are retreating now at speeds that cannot be comfortable to contemplate.",
+        content: "The Logic of the Glacier",
       },
       {
         type: "pullquote",
         content:
-          "The glacier calves with a sound like a rifle shot, and the berg rolls in the water for a long, slow moment before settling. Then the silence returns, heavier than before.",
+          "A glacier makes a sound that is somewhere between a rifle shot and the earth clearing its throat. You feel it in your chest before you hear it with your ears.",
       },
       {
         type: "paragraph",
         content:
-          "I spent the second day on the water, in a zodiac out of Puerto Natales, moving through the Última Esperanza Sound — Last Hope Sound, as the maps translate it, a name that tells you exactly what the early explorers were feeling. The channel narrows as you move north, the mountains press closer, and the Balmaceda Glacier appears around a bend as a white wall, cracked and luminous, descending to the water's edge. The guide cut the engine and we drifted. The glacier calved twice while we watched — a rifle crack, a slow plunge, the sudden icebergs glowing turquoise in the dark water.",
+          "The Grey Glacier comes at you slowly, which is the only way something that massive can come. It fills the view the way a fact fills a mind — gradually, then all at once. From the boat you can see the blue veining inside the ice, colours that have no names in any language built for surfaces. The guide explained the physics of glacial blue with the patience of someone who has explained it a hundred times and still believes it is worth explaining. The ice absorbs red light and reflects blue. The glacier is blue because it is old. It has had time to become pure.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "A calf broke off while we watched — a column the size of a building, rotating slowly as it fell, hitting the water with the sound of something final. The wave it produced reached us thirty seconds later. Small, but perceptible. A message from the ice.",
       },
       {
         type: "subheading",
-        content: "Silence as Landscape",
+        content: "Before the Light",
       },
       {
         type: "paragraph",
         content:
-          "People who have not been here imagine Patagonia as silent. It is not. The wind is constant and sometimes deafening. Condors have an extraordinary wingspan and cut the air with an audible presence. The grass of the steppe is always moving, always whispering. But these are sounds without human origin, and in the absence of traffic and voices and the low electrical hum of cities, they register differently — as part of the landscape rather than as noise imposed upon it.",
+          "The towers — Las Torres, the three granite spires that give the park its name — are best approached in darkness so that you arrive at the mirador as the sun does. I had been warned about this advice. I had been told it was a cliché, that everyone does it, that the trail is crowded even at 4am. This was true. It was also entirely beside the point. When the first light hit the east face of the central tower and the rock went from grey to amber to that specific pink-gold that exists only at altitude in the early morning, everyone on the mirador stopped talking at the same moment. We stood in the cold and watched, and nobody pretended to be somewhere else.",
       },
       {
         type: "paragraph",
         content:
-          "This is what people mean, I think, when they talk about the silence of wild places. It is not acoustic. It is the silence of a place that does not know you are there and is not performing for you. The mountains were here before the word Patagonia existed. The glacier was here before the continent had its current shape. You walk across this land with a full and clarifying awareness that your presence is strictly temporary and entirely optional.",
-      },
-      {
-        type: "subheading",
-        content: "The Last Day",
-      },
-      {
-        type: "paragraph",
-        content:
-          "My final morning in the park, I climbed the Mirador Las Torres before dawn. It takes two and a half hours from the base camp in the dark, with a headlamp and a cold that is academic at first and then suddenly personal. At the top, the three granite towers of the Paine Massif stand over a lake of glacial melt, and in the grey pre-dawn they are shapes more than things — black against black, impossible scale.",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Then the light comes. It comes from behind you, from the east, and it hits the towers first at their peaks, turns them briefly orange, then pink, then the specific shade of pink that exists only at altitude in the last minutes before full daylight. The colour lasts perhaps four minutes. Around me, a dozen other people who had also climbed in the dark were completely silent. No phones raised. No words. We stood in the cold and watched the light happen to the rock and felt the specific gratitude of having arrived at the right place at the right time in a world that did not require our presence but somehow accommodated it anyway.",
+          "I descended in the full morning, legs aching in the specific way that means you've done something honest with your body. The wind had come up, which is the normal condition of Patagonia — the wind is not weather here, it is climate. A condor was using it to stay perfectly still in the air above the valley, doing nothing with great elegance. I watched it for a while and then walked back to the lodge, where there was coffee and bread and the particular satisfaction of having been somewhere that asked something of you.",
       },
     ],
   },
   {
-    slug: "moroccan-riad-design",
+    slug: "marrakech-riads",
     title: "A Study in Moroccan Riad Design",
-    category: "Culture",
-    readTime: "6 min read",
-    publishedDate: "February 2025",
+    category: "Architecture & Culture",
+    readTime: "4 min read",
+    publishedDate: "January 2025",
     author: "Itinera Editorial",
     imageKey: "culture",
     excerpt:
-      "The riad turns its back on the street. Its windows face inward, its beauty is private, and its logic is the logic of the courtyard: everything worth having is at the centre.",
+      "The riad is built on a single idea: that the most valuable space is interior. Everything worth having is inside.",
     body: [
       {
         type: "paragraph",
         content:
-          "From the street, it could be a wall. Blank plaster, sun-bleached to the colour of old bone, a wooden door studded with iron nails arranged in patterns that may or may not be significant. No windows. No number. No indication, to a stranger, that anything of consequence lies within. This is by design. The riad has always been a building that protects itself through anonymity — a domestic philosophy that the medinas of Morocco have practiced for centuries and that the modern world is only now beginning to appreciate.",
+          "You would not know it from the street. That is the entire point. The street-facing wall of a Marrakech riad is often blank plaster, studded with a single door — ornate, yes, but set into nothing, giving away nothing. This is intentional. The riad is a house built around an absence: the central courtyard open to the sky, a rectangle of light and shadow and water that organises everything else around it.",
       },
       {
         type: "paragraph",
         content:
-          "I had been given the address of a riad in Marrakech's northern medina by someone who described it, with characteristic understatement, as 'comfortable.' I spent ten minutes walking in circles in the Bab Doukkala neighbourhood before I understood that the building I had passed twice was, in fact, my destination. The owner, a Frenchwoman who had spent eleven years restoring it, answered the door in paint-stained overalls and led me through an entrance corridor — narrow, turning twice, designed to prevent the gaze from penetrating the interior — and into the courtyard.",
+          "I had come to understand riads through the lens of design history, which is a way of saying I had come to understand them wrong. The riad is not a designed object in the sense that a hotel lobby is designed. It is a system of values made physical. The values are: family, discretion, water, geometry, and the quality of staying in.",
+      },
+      {
+        type: "subheading",
+        content: "The Mathematics of the Tile",
       },
       {
         type: "pullquote",
         content:
-          "The riad is an argument that privacy is not isolation. You turn inward not to shut the world out, but to create a world worth being in.",
+          "Every zellige tile is cut by hand. The imperfection is the point. Perfection is for machines; beauty is for craftsmen.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I found the workshop on the third attempt, down an alley that became a narrower alley that became a passage that felt like a mistake. The zellige craftsmen work sitting on the floor, hammer in one hand, chisel in the other, cutting tiles from fired ceramic with a speed that suggests not expertise but something past expertise — a knowledge held in the body rather than the mind. The tiles are small, irregular in their perfection. Assembled, they produce the geometric patterns you have seen on every wall in every medina: stars within stars, hexagons becoming wheels, infinity suggested in a space two feet square.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The master craftsman showed me where the pattern began. There is always a single point, he said. Everything else follows from the first decision. I thought about that for a long time.",
       },
       {
         type: "subheading",
-        content: "The Courtyard as Centre of the Universe",
+        content: "The Logic of Turning Inward",
       },
       {
         type: "paragraph",
         content:
-          "The central courtyard of a riad is called the wust ed-dar — the middle of the house. This is accurate in both the physical and philosophical sense. The rooms of the house face inward, their doors and windows opening onto the courtyard rather than the street. The light comes down from the open sky above. In traditional riads, a fountain at the courtyard's centre circulates water that cools the air through evaporation — a technology of extraordinary elegance that has been working for a thousand years without requiring a single mechanical component.",
+          "My riad had a courtyard with an orange tree and a fountain and a resident cat who occupied the best chair with an authority no interior designer could have planned. In the evenings the family who ran the house would bring mint tea to the courtyard and the sound of the medina — which is continuous, which is the sound of everything happening at once — would arrive softened, filtered by the walls, reduced to something you could choose to hear or not.",
       },
       {
         type: "paragraph",
         content:
-          "The one I was standing in had a fountain of carved marble, its basin barely larger than a bathtub. Orange trees in large ceramic pots stood at each corner of the courtyard, heavy with fruit that would not be harvested until December. The floor was zellige — the hand-cut geometric tilework for which Moroccan craftsmen are still among the most sought-after in the world — in patterns of navy and white that seemed simultaneously mathematical and organic, like something grown rather than made.",
+          "This is what the riad does. It takes the world and makes it optional. You can go out into the noise and heat and colour of the city — and you should, you must, the medina is one of the greatest human constructions on earth — but you can also come back. The courtyard will be there. The fountain will be running. The cat will have not moved.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I spent four days learning the medina's grammar and four evenings forgetting it in the courtyard, and by the end I understood that the riad is not an escape from Morocco. It is the most Moroccan thing of all.",
+      },
+    ],
+  },
+  {
+    slug: "vietnam-night-trains",
+    title: "The Art of Arriving Slowly",
+    category: "Travel Philosophy",
+    readTime: "5 min read",
+    publishedDate: "April 2025",
+    author: "Itinera Editorial",
+    imageKey: "wilderness",
+    excerpt:
+      "The overnight train from Hanoi to Da Nang takes 16 hours. That is not a problem. That is the entire point.",
+    body: [
+      {
+        type: "paragraph",
+        content:
+          "The platform at Hanoi's Ga Ha Noi station smells of diesel and sugar cane and something frying in oil somewhere out of sight. It is 9pm. The train is already at the platform — a succession of pale green carriages with rust along the lower seams, a locomotive that looks as if it has opinions about the journey ahead. I have a soft sleeper berth, which is the phrase for a bunk with a padded surface and a curtain and a small folding table for tea. I am delighted.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We live now in an age of frictionless travel. The airport is designed to get you from kerb to gate in the fewest possible minutes. The aircraft is designed to get you from gate to destination in the fewest possible hours. The hotel is designed to produce in you the sense that you have not really moved at all — that the place you are in is essentially the same place you left, with different art in the lobby. This is efficient. It is also, as a travel experience, essentially nothing.",
       },
       {
         type: "subheading",
-        content: "The Craftsmen of the Medina",
+        content: "What the Train Gives You",
+      },
+      {
+        type: "pullquote",
+        content:
+          "Travel is not transportation. Transportation is what you do when the travelling is finished.",
       },
       {
         type: "paragraph",
         content:
-          "The owner, whose name was Colette, spent two afternoons walking me through the medina's craft districts. This is not the tourist route — not the carpet sellers of Djemaa el-Fna, not the leather tanneries where guides lead you to rooftop terraces with sprigs of mint to hold against your nose. These were the working workshops of the men who made the buildings.",
+          "The train gives you something no aircraft can: the geography between two places. Vietnam at night from a train window is a succession of small revelations — the lit doorways of houses, the fires of roadside vendors, the sudden opening of a river valley, the mountains gathering at the edge of visibility. You are not being transported. You are being shown. There is a difference.",
       },
       {
         type: "paragraph",
         content:
-          "In one alley, four men were laying a zellige floor in a riad under restoration. The tiles — each piece cut by hand with a hammer and a chisel called a menkach — were arranged in a pattern that required, Colette explained, a full week of calculation before the first tile could be placed. The master craftsman, a man of perhaps sixty who did not look up from his work when we entered, was operating from a drawing that existed only in his memory. The apprentice beside him was seventeen. The tradition was being transmitted in real time, tile by tile, in a room no tourist would ever see.",
+          "My compartment companions were a family from Hue — grandmother, mother, two children — who distributed snacks with the generosity of people who understand that sharing food is the same as sharing space. We had no common language beyond the grammar of pointing at things and nodding. The children fell asleep on the grandmother's lap somewhere around Ninh Binh. The mother watched the window with the expression of someone thinking about something she wouldn't say. The train moved south.",
       },
       {
         type: "subheading",
-        content: "The Philosophy of Turning Inward",
+        content: "The Hai Van Pass at Dawn",
       },
       {
         type: "paragraph",
         content:
-          "What the riad teaches — if you spend enough time in one, if you let the logic of it settle into you — is something about attention. The building asks you to look at what is close rather than what is distant. Its beauty is not panoramic but intimate: the way the morning light moves across the zellige floor, the way the fountain sound changes as the day heats and expands the courtyard's acoustics, the weight of a cedar door, the feel of cool plaster under a palm pressed flat against it.",
+          "The Hai Van Pass — the Pass of Ocean Clouds, in translation — reaches 500 metres above the South China Sea and forms the climatic divide between northern and southern Vietnam. The train crosses it before dawn, which means you experience it as a gradual lightening of the window rather than a view. Grey becoming silver becoming the first colour. The South China Sea appearing below, then the mountains around it, then Da Nang in the distance, small and lit and arriving.",
       },
       {
         type: "paragraph",
         content:
-          "In a world organized entirely around distraction — around the pull toward the next thing, the wider view, the louder experience — there is something almost corrective about a house that has been designed, for ten centuries, to make you stay where you are and notice what is already there. On my last evening in Marrakech, I sat in the courtyard until the muezzin call rolled over the medina from four directions at once, the prayers overlapping and combining in the warm air, and the orange trees held perfectly still, and the fountain went on circulating its unremarkable water, and I understood, for a moment, exactly why the riad has its windows facing in.",
+          "I stepped onto the platform in Da Nang at 6am with the particular clarity that comes from a night spent in motion — not rested exactly, but scoured. The city was waking up around me. Someone was making pho. Someone else was opening a café. A dog was performing its morning operations with great deliberateness. I had arrived, in all the ways that matter.",
+      },
+    ],
+  },
+  {
+    slug: "lisbon-light",
+    title: "What Lisbon Taught Me About Light",
+    category: "City Portraits",
+    readTime: "5 min read",
+    publishedDate: "February 2025",
+    author: "Itinera Editorial",
+    imageKey: "architecture",
+    excerpt:
+      "Every city has a light. London's is flat and democratic. Paris has the light of its own mythology. Lisbon's is something else entirely: particular, lateral, almost aggressive in its beauty.",
+    body: [
+      {
+        type: "paragraph",
+        content:
+          "It finds you, Lisbon's light. You are walking through Alfama in the late afternoon, making your way up another of the seven hills, following an alley that keeps promising to open and keeps not opening, and then it does — a miradouro, a viewpoint, the Tagus below you going gold, the opposite bank in the last full sun, the city arranged around you in its irregular Moorish geography — and the light is doing something to the walls that no photographer has ever quite captured and no painter has quite gotten right.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The Portuguese have a word for it: saudade. It means something like longing for a thing you cannot name, or the beauty of absence, or the sweetness of loss. The light is made of it. The fado music — which you will hear coming from somewhere every evening, low and certain and bereft in the way of something that has always been bereft — is made of it too. Lisbon is a city that has had time to understand what it is nostalgic for.",
+      },
+      {
+        type: "subheading",
+        content: "The Azulejos",
+      },
+      {
+        type: "pullquote",
+        content:
+          "The tiles are everywhere: on church facades, on railway stations, on the sides of ordinary apartment buildings. They are Portugal's autobiography, written in blue and white.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The National Tile Museum is housed in a 16th-century convent, which is either ironic or appropriate depending on your view of religion and decoration. The collection spans five centuries of azulejo production — from the Moorish geometric patterns brought from North Africa to the Baroque excess of the 18th century to the art nouveau panels of the early 20th. The most extraordinary piece is a panoramic tile depiction of Lisbon before the 1755 earthquake, when the city was different, when the Praça do Comércio was lined with palaces that no longer exist. The earthquake was followed by a tsunami and then a fire. The city was rebuilt in three years. The tiles survived.",
+      },
+      {
+        type: "subheading",
+        content: "The Fado Hour",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I went to a fado house in Mouraria — the Moorish quarter, the birthplace of fado, where the music is said to have arrived with the sailors' longing for home. The room was small, the tables close together. The fadista came on without introduction and sang for forty minutes and said nothing between songs. She had the face of someone who had decided that performance and sincerity were the same thing. The Portuguese couple beside me was crying by the third song. I wasn't, but I understood why they were.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Lisbon is a city of what remains. The Alfama survived the earthquake because it was built on rock. The trams are 1930s stock still running their original routes. The pastelaria on the corner has been there since 1885 and sells the same pastéis de nata it has always sold. The city does not mistake what is old for what is valuable. It understands that some things have earned their continuation.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I left on a morning when the Tagus was running silver and the tram was going past on its usual schedule and the light was doing its usual extraordinary thing to the walls. I had learned nothing about Lisbon that Lisbon doesn't offer freely to anyone who takes the time to look. That, I think, is what the best cities do.",
+      },
+    ],
+  },
+  {
+    slug: "sahara-dawn",
+    title: "A Weekend at the Edge of the Sahara",
+    category: "Wilderness & Nature",
+    readTime: "4 min read",
+    publishedDate: "December 2024",
+    author: "Itinera Editorial",
+    imageKey: "culture",
+    excerpt:
+      "The dunes of Erg Chebbi rise 150 metres from flat desert. Standing at the top, you understand why every religion that matters was born in this kind of landscape.",
+    body: [
+      {
+        type: "paragraph",
+        content:
+          "The road from Erfoud to Merzouga crosses a flat, rocky hammada — the pavement desert, nothing growing, nothing moving, the heat sitting on it like a presence. And then, without preamble, there are dunes. The Erg Chebbi begins as a suggestion at the horizon and becomes, in twenty minutes of driving, an extraordinary fact: a sea of sand 50 kilometres long and 5 kilometres wide, the highest peaks at 150 metres, the colour varying by minute — apricot, rose, amber, the deep ochre of old honey.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "I arrived in the late afternoon, which is the correct time to arrive, because the dunes in the last sun are doing something that can only be described as showing off. The shadows are precise and long. The gradations of colour between sunlit and shaded slope are the kind of thing that makes you reach for your phone and then put it away again, because no phone will help you here. You just have to look.",
+      },
+      {
+        type: "subheading",
+        content: "The Camp",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The luxury camp was twenty minutes by camel from the nearest road, which felt exactly right. The tent had a real bed, clean sheets, a rug, lanterns. There was no electricity after ten o'clock. The Sahara at night is very dark, which turns out to mean it is very lit — the Milky Way is not a metaphor out here, not a faint suggestion visible between the light pollution. It is a structure. It fills the sky with a density that makes you realise you have spent your whole life looking at a partial version of it.",
+      },
+      {
+        type: "pullquote",
+        content:
+          "The Sahara at night is a lesson in what we have built over. Every city is a dimming.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Dinner was served by lantern light: harira soup, mechoui lamb cooked slowly in the earth, preserved lemon and olive salad, the kind of bread that requires no butter because it is already perfect. Gnawa musicians played until midnight, the guembri bass lute and the iron castanets creating a rhythm that is not like other music — it does not build toward something, it circles, it persists, it works on you the way long travel works on you, slowly and from underneath.",
+      },
+      {
+        type: "subheading",
+        content: "The First Light",
+      },
+      {
+        type: "paragraph",
+        content:
+          "The guide woke me at five-thirty. I dressed in the dark and climbed onto a camel that was sitting, reluctantly, waiting. We crossed the dark sand in single file, the guide ahead, me following, the stars still overhead, the camp disappearing behind the first dune. The ride to the peak took forty minutes. The camel moved with the swaying certainty of something that has done this ten thousand times.",
+      },
+      {
+        type: "paragraph",
+        content:
+          "We watched from the summit as the sky paled and the dunes changed colour beneath us — grey becoming pink becoming gold becoming the full morning — and I thought about how many people have watched this specific event from this specific desert and felt this specific thing, which is small and grateful and strangely certain. The Sahara is very old. It has seen everyone who needed seeing. It doesn't need to impress you. It just continues, as it has always continued, entirely indifferent, entirely magnificent.",
       },
     ],
   },

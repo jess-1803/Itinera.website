@@ -50,32 +50,47 @@ export function CuratedItineraries() {
       <div className="absolute top-0 left-[-20%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-3xl">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block"
+            >
+              AI-Crafted Journeys
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-4xl md:text-5xl font-serif text-foreground mb-4 leading-tight"
+            >
+              Itineraries built for <span className="italic">your exact taste.</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-foreground/70 text-lg font-light"
+            >
+              Start with our masterpieces, then let our AI tune them to your preferences down to the finest detail.
+            </motion.p>
+          </div>
+
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block"
           >
-            AI-Crafted Journeys
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-serif text-foreground mb-6 leading-tight"
-          >
-            Itineraries built for <br /><span className="italic">your exact taste.</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-foreground/70 text-lg font-light"
-          >
-            Start with our masterpieces, then let our AI tune them to your preferences down to the finest detail.
-          </motion.p>
+            <Link href="/itineraries">
+              <span className="flex items-center text-foreground/80 hover:text-primary transition-colors group cursor-pointer font-medium whitespace-nowrap">
+                View all itineraries
+                <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

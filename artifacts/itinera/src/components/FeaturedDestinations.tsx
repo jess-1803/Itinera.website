@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
+import { Link } from "wouter";
 import kyotoImg from "../assets/destinations/kyoto.png";
 import amalfiImg from "../assets/destinations/amalfi.png";
 import moroccoImg from "../assets/destinations/morocco.png";
-import icelandImg from "../assets/destinations/iceland.png";
-import baliImg from "../assets/destinations/bali.png";
 import patagoniaImg from "../assets/destinations/patagonia.png";
+
+const CAPPADOCIA_URL = "https://images.unsplash.com/photo-1570939274717-7eda259b50ed?q=80&w=1600&auto=format&fit=crop";
+const RAJASTHAN_URL = "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600&auto=format&fit=crop";
 
 interface DestinationItinerary {
   days: string;
@@ -69,33 +71,33 @@ const destinations: Destination[] = [
     },
   },
   {
-    name: "Reykjavik, Iceland",
-    tagline: "Dramatic landscapes carved by fire and ice.",
-    image: icelandImg,
+    name: "Cappadocia, Turkey",
+    tagline: "Hot air balloons over a dreamscape carved from ancient rock.",
+    image: CAPPADOCIA_URL,
     size: "small",
     itinerary: {
       days: "4-Day Highlights",
       highlights: [
-        "Golden Circle in a private vehicle",
-        "Blue Lagoon geothermal spa",
-        "Northern Lights night tour",
-        "South Coast waterfalls & black sand",
+        "Dawn balloon flight over the fairy chimneys",
+        "Cave hotel with a view over the valleys",
+        "Underground city of Derinkuyu",
+        "Sunset horse ride through Göreme",
       ],
     },
   },
   {
-    name: "Ubud, Bali",
-    tagline: "Lush sanctuaries wrapped in morning mist.",
-    image: baliImg,
+    name: "Rajasthan, India",
+    tagline: "Royal palaces, blazing colour, and the soul of old India.",
+    image: RAJASTHAN_URL,
     size: "medium",
     itinerary: {
-      days: "5-Day Highlights",
+      days: "7-Day Highlights",
       highlights: [
-        "Rice terrace walks at dawn",
-        "Pura Tirta Empul temple purification",
-        "Mount Batur sunrise hike",
-        "Sound bath and jungle spa day",
-        "Cooking class with a local family",
+        "Amber Fort by elephant at sunrise",
+        "Jodhpur's blue city from Mehrangarh",
+        "Camel safari into the Thar Desert",
+        "Udaipur's lake palaces at dusk",
+        "Private haveli dinner in Jaisalmer",
       ],
     },
   },
@@ -124,11 +126,8 @@ export function FeaturedDestinations() {
   const toggleFlip = (i: number) => {
     setFlippedCards((prev) => {
       const next = new Set(prev);
-      if (next.has(i)) {
-        next.delete(i);
-      } else {
-        next.add(i);
-      }
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
       return next;
     });
   };
@@ -143,18 +142,18 @@ export function FeaturedDestinations() {
           className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8"
         >
           <div className="max-w-2xl">
-            <span className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block">
-              Curated Escapes
-            </span>
+            <span className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block">Curated Escapes</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight">
               Destinations that <span className="italic">inspire.</span>
             </h2>
           </div>
           <div className="flex flex-col items-end gap-2">
-            <button className="flex items-center text-foreground/80 hover:text-primary transition-colors group pb-2">
-              <span className="mr-3 font-medium">View all destinations</span>
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
+            <Link href="/destinations">
+              <span className="flex items-center text-foreground/80 hover:text-primary transition-colors group pb-2 cursor-pointer font-medium">
+                View all destinations
+                <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
             <p className="text-muted-foreground text-xs">Hover a card to reveal the itinerary</p>
           </div>
         </motion.div>
@@ -182,21 +181,13 @@ export function FeaturedDestinations() {
                 transition={{ duration: 0.8, delay: i * 0.1 }}
                 className={`${spanClass} ${heightClass} flip-card rounded-xl cursor-pointer`}
                 onMouseEnter={() => setFlippedCards((prev) => new Set(prev).add(i))}
-                onMouseLeave={() => setFlippedCards((prev) => {
-                  const next = new Set(prev);
-                  next.delete(i);
-                  return next;
-                })}
+                onMouseLeave={() => setFlippedCards((prev) => { const next = new Set(prev); next.delete(i); return next; })}
                 onClick={() => toggleFlip(i)}
                 data-testid={`card-destination-${i}`}
               >
                 <div className={`flip-card-inner ${isFlipped ? "flipped" : ""}`}>
-                  {/* FRONT — destination photo */}
                   <div className="flip-card-front rounded-xl overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center"
-                      style={{ backgroundImage: `url(${dest.image})` }}
-                    />
+                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${dest.image})` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80" />
                     <div className="absolute inset-0 p-8 flex flex-col justify-end">
                       <h3 className="text-2xl md:text-3xl font-serif text-white mb-2">{dest.name}</h3>
@@ -208,26 +199,16 @@ export function FeaturedDestinations() {
                     </div>
                   </div>
 
-                  {/* BACK — quick itinerary */}
                   <div
                     className="flip-card-back rounded-xl"
-                    style={{
-                      background: "linear-gradient(135deg, hsl(330 60% 9%) 0%, hsl(330 55% 13%) 100%)",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                    }}
+                    style={{ background: "linear-gradient(135deg, hsl(330 60% 9%) 0%, hsl(330 55% 13%) 100%)", border: "1px solid rgba(255,255,255,0.1)" }}
                   >
-                    {/* faint background image */}
-                    <div
-                      className="absolute inset-0 bg-cover bg-center opacity-10 rounded-xl"
-                      style={{ backgroundImage: `url(${dest.image})` }}
-                    />
+                    <div className="absolute inset-0 bg-cover bg-center opacity-10 rounded-xl" style={{ backgroundImage: `url(${dest.image})` }} />
                     <div className="absolute inset-0 p-8 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <MapPin className="w-4 h-4 text-primary" />
-                          <span className="text-primary text-sm font-medium tracking-wide uppercase">
-                            {dest.itinerary.days}
-                          </span>
+                          <span className="text-primary text-sm font-medium tracking-wide uppercase">{dest.itinerary.days}</span>
                         </div>
                         <h3 className="text-2xl md:text-3xl font-serif text-white mb-6">{dest.name}</h3>
                         <ul className="space-y-3">

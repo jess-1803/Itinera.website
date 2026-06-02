@@ -13,7 +13,6 @@ export function AIPlanning() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left: Copy */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -65,30 +64,22 @@ export function AIPlanning() {
               </div>
             </div>
 
-            {/* Download CTAs */}
+            {/* Download CTAs — Coming Soon */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="#"
-                data-testid="button-app-store"
-                className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 hover:scale-105 group"
-              >
-                <Apple className="w-6 h-6 shrink-0" />
+              <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-foreground/10 border border-white/10 opacity-60 cursor-not-allowed select-none">
+                <Apple className="w-6 h-6 shrink-0 text-foreground/50" />
                 <div className="text-left">
-                  <p className="text-[10px] font-medium opacity-70 leading-none mb-0.5">Download on the</p>
-                  <p className="text-sm font-semibold leading-none">App Store</p>
+                  <p className="text-[10px] font-medium text-foreground/40 leading-none mb-0.5">Coming soon</p>
+                  <p className="text-sm font-semibold leading-none text-foreground/60">App Store</p>
                 </div>
-              </a>
-              <a
-                href="#"
-                data-testid="button-google-play"
-                className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-white/20 text-foreground hover:border-primary/40 hover:text-primary transition-all duration-300 hover:scale-105"
-              >
-                <Smartphone className="w-6 h-6 shrink-0" />
+              </div>
+              <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-foreground/10 border border-white/10 opacity-60 cursor-not-allowed select-none">
+                <Smartphone className="w-6 h-6 shrink-0 text-foreground/50" />
                 <div className="text-left">
-                  <p className="text-[10px] font-medium opacity-70 leading-none mb-0.5">Get it on</p>
-                  <p className="text-sm font-semibold leading-none">Google Play</p>
+                  <p className="text-[10px] font-medium text-foreground/40 leading-none mb-0.5">Coming soon</p>
+                  <p className="text-sm font-semibold leading-none text-foreground/60">Google Play</p>
                 </div>
-              </a>
+              </div>
             </div>
           </motion.div>
 
@@ -100,13 +91,11 @@ export function AIPlanning() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative flex items-center justify-center h-[600px]"
           >
-            {/* Ambient glow */}
             <div className="absolute inset-0 bg-primary/15 blur-[80px] rounded-full" />
 
-            {/* Left phone — Map */}
             <motion.div
-              initial={{ opacity: 0, x: -30, rotate: -8 }}
-              whileInView={{ opacity: 1, x: 0, rotate: -8 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: 0.4 }}
               className="absolute left-0 top-10 z-10"
@@ -115,7 +104,6 @@ export function AIPlanning() {
               <PhoneFrame src={appMapImg} alt="Itinera map view" width={200} />
             </motion.div>
 
-            {/* Centre phone — Plan/AI (front) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -126,10 +114,9 @@ export function AIPlanning() {
               <PhoneFrame src={appPlanImg} alt="Itinera AI planner" width={240} shadow />
             </motion.div>
 
-            {/* Right phone — Places */}
             <motion.div
-              initial={{ opacity: 0, x: 30, rotate: 8 }}
-              whileInView={{ opacity: 1, x: 0, rotate: 8 }}
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, delay: 0.4 }}
               className="absolute right-0 top-10 z-10"
@@ -144,31 +131,14 @@ export function AIPlanning() {
   );
 }
 
-function PhoneFrame({
-  src,
-  alt,
-  width,
-  shadow,
-}: {
-  src: string;
-  alt: string;
-  width: number;
-  shadow?: boolean;
-}) {
+function PhoneFrame({ src, alt, width, shadow }: { src: string; alt: string; width: number; shadow?: boolean }) {
   return (
     <div
       className={`relative rounded-[2.5rem] overflow-hidden border-2 border-white/20 bg-black ${shadow ? "shadow-[0_30px_80px_rgba(0,0,0,0.6)]" : "shadow-[0_20px_50px_rgba(0,0,0,0.5)]"}`}
       style={{ width, aspectRatio: "9/19" }}
     >
-      {/* Notch */}
       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-20 h-5 bg-black rounded-full z-10" />
-      <img
-        src={src}
-        alt={alt}
-        className="w-full h-full object-cover"
-        draggable={false}
-      />
-      {/* Screen shine */}
+      <img src={src} alt={alt} className="w-full h-full object-cover" draggable={false} />
       <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-transparent to-transparent pointer-events-none" />
     </div>
   );
