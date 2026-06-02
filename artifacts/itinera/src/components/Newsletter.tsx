@@ -1,15 +1,38 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Bell, Check } from "lucide-react";
+import { Bell, Check, AlertCircle } from "lucide-react";
 
 export function Newsletter() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [email, setEmail] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email || status === "loading") return;
+
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch(`${import.meta.env.BASE_URL}api/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json() as { ok?: boolean; error?: string };
+
+      if (res.ok && data.ok) {
+        setStatus("success");
+      } else {
+        setErrorMsg(data.error ?? "Something went wrong. Please try again.");
+        setStatus("error");
+      }
+    } catch {
+      setErrorMsg("Network error. Please check your connection.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -41,7 +64,7 @@ export function Newsletter() {
             Subscribe for launch updates, early access to the full app, and exclusive deals as new partners join the marketplace.
           </p>
 
-          {submitted ? (
+          {status === "success" ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -54,31 +77,48 @@ export function Newsletter() {
               <p className="text-foreground/50 text-sm font-light">We'll be in touch when it's time.</p>
             </motion.div>
           ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                required
-                className="flex-1 bg-card/50 backdrop-blur-sm border border-white/10 rounded-full px-6 py-4 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary/50 transition-colors"
-              />
-              <button
-                type="submit"
-                data-testid="button-subscribe"
-                className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:bg-primary/90 transition-all hover:scale-105 shrink-0"
+            <>
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
               >
-                Notify me
-              </button>
-            </form>
-          )}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (status === "error") setStatus("idle");
+                  }}
+                  placeholder="Your email address"
+                  required
+                  className="flex-1 bg-card/50 backdrop-blur-sm border border-white/10 rounded-full px-6 py-4 text-foreground placeholder:text-foreground/40 focus:outline-none focus:border-primary/50 transition-colors"
+                />
+                <button
+                  type="submit"
+                  data-testid="button-subscribe"
+                  disabled={status === "loading"}
+                  className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-medium hover:bg-primary/90 transition-all hover:scale-105 shrink-0 disabled:opacity-60 disabled:scale-100"
+                >
+                  {status === "loading" ? "Subscribing…" : "Notify me"}
+                </button>
+              </form>
 
-          <p className="text-xs text-foreground/40 mt-4 font-light">
-            No spam. Unsubscribe at any time.
-          </p>
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center justify-center gap-2 mt-4 text-red-400 text-sm"
+                >
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  {errorMsg}
+                </motion.div>
+              )}
+
+              <p className="text-xs text-foreground/40 mt-4 font-light">
+                No spam. Unsubscribe at any time.
+              </p>
+            </>
+          )}
         </motion.div>
       </div>
     </section>
