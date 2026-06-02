@@ -1,28 +1,34 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowLeft, User } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import jessicaPhoto from "@assets/100_1066_1780401851691.JPG";
+import shreyaPhoto from "@assets/FullSizeRender_1780401851692.JPEG";
+import atheaPhoto from "@assets/IMG_7873_1780401851692.JPEG";
 
 const FOUNDERS = [
   {
     id: 1,
-    name: "Co-Founder",
-    role: "CEO & Co-Founder",
+    name: "Jessica Mangos",
+    role: "CSO & Co-Founder",
     bio: "Bio coming soon.",
+    photo: jessicaPhoto,
   },
   {
     id: 2,
-    name: "Co-Founder",
-    role: "CTO & Co-Founder",
+    name: "Shreya Sharma",
+    role: "CEO & Co-Founder",
     bio: "Bio coming soon.",
+    photo: shreyaPhoto,
   },
   {
     id: 3,
-    name: "Co-Founder",
-    role: "CPO & Co-Founder",
+    name: "Athea Brennan",
+    role: "CMO & Co-Founder",
     bio: "Bio coming soon.",
+    photo: atheaPhoto,
   },
 ];
 
@@ -144,23 +150,17 @@ export default function About() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: i * 0.1 }}
+                transition={{ duration: 0.7, delay: i * 0.12 }}
                 className="group"
               >
-                {/* Photo placeholder */}
-                <div className="w-full aspect-[3/4] rounded-2xl mb-6 overflow-hidden relative"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(60,8,30,0.6), rgba(100,15,50,0.4))",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center">
-                      <User className="w-7 h-7 text-foreground/30" />
-                    </div>
-                    <p className="text-xs text-foreground/30 font-light">Photo coming soon</p>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                {/* Photo */}
+                <div className="w-full aspect-[3/4] rounded-2xl mb-6 overflow-hidden relative border border-white/8">
+                  <img
+                    src={founder.photo}
+                    alt={founder.name}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
                 </div>
 
                 <h3 className="text-xl font-serif text-foreground mb-1">{founder.name}</h3>
