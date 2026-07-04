@@ -1,10 +1,10 @@
-import { Router, type IRouter, type Request, type Response } from "express";
+import { Router, type IRouter } from "express";
 
 const router: IRouter = Router();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-router.post("/subscribe", async (req: Request, res: Response): Promise<void> => {
+router.post("/subscribe", async (req, res): Promise<void> => {
   const { email } = req.body as { email?: unknown };
 
   if (!email || typeof email !== "string" || !EMAIL_RE.test(email)) {
