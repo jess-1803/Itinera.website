@@ -4,12 +4,10 @@
     "incremental": true,
     "tsBuildInfoFile": ".tsbuildinfo",
     "outDir": "dist",
-    "types": [
-      "node",
-      "express"
-    ]
+    "rootDir": "src",
+    "types": ["express"]
   },
-  "include": ["src", "api"],
+  "include": ["src/**/*.ts"],
   "references": [
     {
       "path": "../../lib/db"
