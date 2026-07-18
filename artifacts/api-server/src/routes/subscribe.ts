@@ -1,11 +1,10 @@
 import {
   Router,
-  type IRouter,
   type Request as ExpressRequest,
   type Response as ExpressResponse,
 } from "express";
 
-const router: IRouter = Router();
+const router = Router();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
