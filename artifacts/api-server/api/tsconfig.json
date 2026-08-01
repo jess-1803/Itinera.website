@@ -1,7 +1,18 @@
 {
-  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
+    "target": "es2022",
+    "lib": ["es2022"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "outDir": ".",
+    "rootDir": ".",
     "types": ["node", "express"]
   },
-  "include": ["index.ts"]
+  "include": ["index.ts"],
+  "references": [{ "path": "../tsconfig.json" }]
 }
