@@ -1,14 +1,11 @@
-import {
-  Router,
-  type Request as ExpressRequest,
-  type Response as ExpressResponse,
-} from "express";
+import { Router } from "express";
+import type { Request, Response } from "express";
 
 const router = Router();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-router.post("/subscribe", async (req: ExpressRequest, res: ExpressResponse): Promise<void> => {
+router.post("/subscribe", async (req: Request, res: Response): Promise<void> => {
   const { email } = req.body as { email?: unknown };
 
   if (!email || typeof email !== "string" || !EMAIL_RE.test(email)) {
