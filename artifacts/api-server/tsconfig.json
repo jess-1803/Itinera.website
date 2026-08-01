@@ -5,7 +5,7 @@
     "tsBuildInfoFile": ".tsbuildinfo",
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["express"]
+    "types": ["node"]
   },
   "include": ["src/**/*.ts"],
   "references": [
