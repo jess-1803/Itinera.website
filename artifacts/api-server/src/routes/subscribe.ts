@@ -21,7 +21,7 @@ router.post("/subscribe", async (req: Request, res: Response): Promise<void> => 
     return;
   }
 
-  const response = await fetch(
+  const response = await globalThis.fetch(
     `https://emailoctopus.com/api/1.6/lists/${listId}/contacts`,
     {
       method: "POST",
