@@ -21,7 +21,7 @@ router.post("/subscribe", async (req: Request, res: Response): Promise<void> => 
     return;
   }
 
-  const response = await globalThis.fetch(
+  const response = (await globalThis.fetch(
     `https://emailoctopus.com/api/1.6/lists/${listId}/contacts`,
     {
       method: "POST",
@@ -32,9 +32,13 @@ router.post("/subscribe", async (req: Request, res: Response): Promise<void> => 
         status: "SUBSCRIBED",
       }),
     }
-  );
+  )) as unknown as {
+    json(): Promise<Record<string, unknown>>;
+    ok: boolean;
+    status: number;
+  };
 
-  const data = await response.json() as Record<string, unknown>;
+  const data = await response.json();
 
   if (!response.ok) {
     const code = typeof data.code === "string" ? data.code : "";
