@@ -133,13 +133,13 @@ export function FeaturedDestinations() {
   };
 
   return (
-    <section id="discover" className="py-32 bg-background relative">
+    <section id="discover" className="py-20 md:py-32 bg-background relative">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8"
+          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8"
         >
           <div className="max-w-2xl">
             <span className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block">Curated Escapes</span>
@@ -154,21 +154,21 @@ export function FeaturedDestinations() {
                 <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
               </span>
             </Link>
-            <p className="text-muted-foreground text-xs">Hover a card to reveal the itinerary</p>
+            <p className="text-muted-foreground text-xs">Tap or hover a card to reveal the itinerary</p>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-min">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 auto-rows-min">
           {destinations.map((dest, i) => {
             let spanClass = "md:col-span-12";
-            let heightClass = "h-[400px] md:h-[600px]";
+            let heightClass = "h-[280px] sm:h-[340px] md:h-[600px]";
 
-            if (i === 0) { spanClass = "md:col-span-8"; heightClass = "h-[400px] md:h-[700px]"; }
-            else if (i === 1) { spanClass = "md:col-span-4"; heightClass = "h-[300px] md:h-[400px]"; }
-            else if (i === 2) { spanClass = "md:col-span-5"; heightClass = "h-[400px] md:h-[600px]"; }
-            else if (i === 3) { spanClass = "md:col-span-7"; heightClass = "h-[300px] md:h-[500px]"; }
-            else if (i === 4) { spanClass = "md:col-span-6"; heightClass = "h-[400px] md:h-[600px]"; }
-            else if (i === 5) { spanClass = "md:col-span-6"; heightClass = "h-[400px] md:h-[600px]"; }
+            if (i === 0) { spanClass = "md:col-span-8"; heightClass = "h-[320px] sm:h-[380px] md:h-[700px]"; }
+            else if (i === 1) { spanClass = "md:col-span-4"; heightClass = "h-[260px] sm:h-[300px] md:h-[400px]"; }
+            else if (i === 2) { spanClass = "md:col-span-5"; heightClass = "h-[280px] sm:h-[340px] md:h-[600px]"; }
+            else if (i === 3) { spanClass = "md:col-span-7"; heightClass = "h-[260px] sm:h-[300px] md:h-[500px]"; }
+            else if (i === 4) { spanClass = "md:col-span-6"; heightClass = "h-[280px] sm:h-[340px] md:h-[600px]"; }
+            else if (i === 5) { spanClass = "md:col-span-6"; heightClass = "h-[280px] sm:h-[340px] md:h-[600px]"; }
 
             const isFlipped = flippedCards.has(i);
 
