@@ -46,11 +46,11 @@ const itineraries = [
 
 export function CuratedItineraries() {
   return (
-    <section id="itineraries" className="py-32 bg-background relative overflow-hidden">
+    <section id="itineraries" className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-[-20%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8">
           <div className="max-w-3xl">
             <motion.span
               initial={{ opacity: 0 }}
@@ -93,7 +93,7 @@ export function CuratedItineraries() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
           {itineraries.map((trip, i) => (
             <motion.div
               key={trip.title}
@@ -115,7 +115,7 @@ export function CuratedItineraries() {
                 </div>
               </div>
 
-              <div className="p-8 flex flex-col flex-1">
+              <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="flex items-center text-primary text-sm font-medium mb-3">
                   <Compass className="w-4 h-4 mr-2" />
                   {trip.style}

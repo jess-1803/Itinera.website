@@ -47,28 +47,28 @@ export function Navigation() {
           <Link href="/">
             <span className="flex items-center gap-2.5 cursor-pointer">
               <img src={logoIcon} alt="Itinera" className="w-8 h-8 object-contain" data-testid="img-logo" />
-              <span className="font-serif italic text-2xl tracking-wide text-foreground">Itinera</span>
+              <span className={`font-serif italic text-2xl tracking-wide ${isScrolled ? "text-foreground" : "text-white"}`}>Itinera</span>
             </span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <a
               href={navHref("#discover")}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
+              className={`text-sm font-medium ${isScrolled ? "text-foreground/80" : "text-white/90"} hover:text-primary transition-colors duration-300 relative group`}
             >
               Discover
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
             <a
               href={navHref("#itineraries")}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
+              className={`text-sm font-medium ${isScrolled ? "text-foreground/80" : "text-white/90"} hover:text-primary transition-colors duration-300 relative group`}
             >
               Itineraries
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
             <button
               onClick={() => scrollTo("marketplace")}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative group"
+              className={`text-sm font-medium ${isScrolled ? "text-foreground/80" : "text-white/90"} hover:text-primary transition-colors duration-300 relative group`}
             >
               Marketplace
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
@@ -76,6 +76,12 @@ export function Navigation() {
             <Link href="/journal">
               <span className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative group cursor-pointer">
                 Journal
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+              </span>
+            </Link>
+            <Link href="/about">
+              <span className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 relative group cursor-pointer">
+                About us
                 <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
               </span>
             </Link>
@@ -90,8 +96,11 @@ export function Navigation() {
 
           <button
             data-testid="button-mobile-menu"
-            className="md:hidden text-foreground"
+            className={`md:hidden ${isScrolled ? "text-foreground" : "text-white"} rounded-full p-2 -mr-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary`}
             onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open navigation menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -104,6 +113,10 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Main navigation"
             className="fixed inset-0 z-[60] bg-background/95 backdrop-blur-3xl flex flex-col"
           >
             <div className="flex items-center justify-between p-6">
@@ -111,7 +124,11 @@ export function Navigation() {
                 <img src={logoIcon} alt="Itinera" className="w-7 h-7 object-contain" />
                 <span className="font-serif italic text-xl tracking-wide text-foreground">Itinera</span>
               </span>
-              <button className="text-foreground" onClick={() => setMobileMenuOpen(false)}>
+              <button
+                className="text-foreground rounded-full p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close navigation menu"
+              >
                 <X className="w-8 h-8" />
               </button>
             </div>
@@ -120,6 +137,7 @@ export function Navigation() {
               <a href={navHref("#itineraries")} onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors">Itineraries</a>
               <button onClick={() => scrollTo("marketplace")} className="text-foreground/90 hover:text-primary transition-colors">Marketplace</button>
               <Link href="/journal"><span onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors cursor-pointer">Journal</span></Link>
+              <Link href="/about"><span onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors cursor-pointer">About us</span></Link>
               <Button
                 onClick={() => scrollTo("ai-planning")}
                 className="bg-primary text-primary-foreground mt-4 rounded-full px-8 py-6 text-xl"
