@@ -19,7 +19,6 @@ interface Destination {
   name: string;
   tagline: string;
   image: string;
-  size: string;
   itinerary: DestinationItinerary;
 }
 
@@ -28,7 +27,6 @@ const destinations: Destination[] = [
     name: "Kyoto, Japan",
     tagline: "Where ancient tradition meets quiet elegance.",
     image: kyotoImg,
-    size: "large",
     itinerary: {
       days: "5-Day Highlights",
       highlights: [
@@ -44,7 +42,6 @@ const destinations: Destination[] = [
     name: "Amalfi Coast, Italy",
     tagline: "Cliffside romance and Mediterranean hues.",
     image: amalfiImg,
-    size: "small",
     itinerary: {
       days: "4-Day Highlights",
       highlights: [
@@ -59,7 +56,6 @@ const destinations: Destination[] = [
     name: "Marrakech, Morocco",
     tagline: "A labyrinth of rich textures and deep shadows.",
     image: moroccoImg,
-    size: "medium",
     itinerary: {
       days: "4-Day Highlights",
       highlights: [
@@ -74,7 +70,6 @@ const destinations: Destination[] = [
     name: "Cappadocia, Turkey",
     tagline: "Hot air balloons over a dreamscape carved from ancient rock.",
     image: CAPPADOCIA_URL,
-    size: "small",
     itinerary: {
       days: "4-Day Highlights",
       highlights: [
@@ -89,7 +84,6 @@ const destinations: Destination[] = [
     name: "Rajasthan, India",
     tagline: "Royal palaces, blazing colour, and the soul of old India.",
     image: RAJASTHAN_URL,
-    size: "medium",
     itinerary: {
       days: "7-Day Highlights",
       highlights: [
@@ -105,7 +99,6 @@ const destinations: Destination[] = [
     name: "Patagonia, Chile",
     tagline: "The wild edge of the world.",
     image: patagoniaImg,
-    size: "large",
     itinerary: {
       days: "6-Day Highlights",
       highlights: [
@@ -158,18 +151,8 @@ export function FeaturedDestinations() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 auto-rows-min">
+        <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {destinations.map((dest, i) => {
-            let spanClass = "md:col-span-12";
-            let heightClass = "h-[280px] sm:h-[340px] md:h-[600px]";
-
-            if (i === 0) { spanClass = "md:col-span-8"; heightClass = "h-[320px] sm:h-[380px] md:h-[700px]"; }
-            else if (i === 1) { spanClass = "md:col-span-4"; heightClass = "h-[260px] sm:h-[300px] md:h-[400px]"; }
-            else if (i === 2) { spanClass = "md:col-span-5"; heightClass = "h-[280px] sm:h-[340px] md:h-[600px]"; }
-            else if (i === 3) { spanClass = "md:col-span-7"; heightClass = "h-[260px] sm:h-[300px] md:h-[500px]"; }
-            else if (i === 4) { spanClass = "md:col-span-6"; heightClass = "h-[280px] sm:h-[340px] md:h-[600px]"; }
-            else if (i === 5) { spanClass = "md:col-span-6"; heightClass = "h-[280px] sm:h-[340px] md:h-[600px]"; }
-
             const isFlipped = flippedCards.has(i);
 
             return (
@@ -178,8 +161,8 @@ export function FeaturedDestinations() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className={`${spanClass} ${heightClass} flip-card rounded-xl cursor-pointer`}
+                transition={{ duration: 0.8, delay: (i % 3) * 0.1 }}
+                className="flip-card h-[320px] cursor-pointer rounded-xl sm:h-[360px] lg:h-[420px]"
                 onMouseEnter={() => setFlippedCards((prev) => new Set(prev).add(i))}
                 onMouseLeave={() => setFlippedCards((prev) => { const next = new Set(prev); next.delete(i); return next; })}
                 onClick={() => toggleFlip(i)}
@@ -189,11 +172,11 @@ export function FeaturedDestinations() {
                   <div className="flip-card-front rounded-xl overflow-hidden">
                     <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${dest.image})` }} />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-80" />
-                    <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                    <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-8">
                       <h3 className="text-2xl md:text-3xl font-serif text-white mb-2">{dest.name}</h3>
                       <p className="text-white/80 mb-4 font-light max-w-sm">{dest.tagline}</p>
-                      <div className="flex items-center text-white/50 text-xs gap-1.5">
-                        <span>Hover to reveal itinerary</span>
+                      <div className="flex items-center gap-1.5 text-xs text-white/60">
+                        <span>Tap or hover to reveal itinerary</span>
                         <ArrowRight className="w-3 h-3" />
                       </div>
                     </div>
@@ -204,7 +187,7 @@ export function FeaturedDestinations() {
                     style={{ background: "linear-gradient(135deg, hsl(330 60% 9%) 0%, hsl(330 55% 13%) 100%)", border: "1px solid rgba(255,255,255,0.1)" }}
                   >
                     <div className="absolute inset-0 bg-cover bg-center opacity-10 rounded-xl" style={{ backgroundImage: `url(${dest.image})` }} />
-                    <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                    <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <MapPin className="w-4 h-4 text-primary" />
