@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, MapPin } from "lucide-react";
-import { Link } from "wouter";
+import { ArrowRight, MapPin } from "lucide-react";
 import kyotoImg from "../assets/destinations/kyoto.png";
 import amalfiImg from "../assets/destinations/amalfi.png";
 import moroccoImg from "../assets/destinations/morocco.png";
@@ -126,31 +125,7 @@ export function FeaturedDestinations() {
   };
 
   return (
-    <section id="discover" className="py-20 md:py-32 bg-background relative">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8"
-        >
-          <div className="max-w-2xl">
-            <span className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block">Curated Escapes</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-tight">
-              Destinations that <span className="italic">inspire.</span>
-            </h2>
-          </div>
-          <div className="flex flex-col items-end gap-2">
-            <Link href="/destinations">
-              <span className="flex items-center text-foreground/80 hover:text-primary transition-colors group pb-2 cursor-pointer font-medium">
-                View all destinations
-                <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Link>
-            <p className="text-muted-foreground text-xs">Tap or hover a card to reveal the itinerary</p>
-          </div>
-        </motion.div>
-
+    <div id="destinations" className="container mx-auto px-6">
         <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {destinations.map((dest, i) => {
             const isFlipped = flippedCards.has(i);
@@ -162,10 +137,30 @@ export function FeaturedDestinations() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: (i % 3) * 0.1 }}
-                className="flip-card h-[320px] cursor-pointer rounded-xl sm:h-[360px] lg:h-[420px]"
-                onMouseEnter={() => setFlippedCards((prev) => new Set(prev).add(i))}
-                onMouseLeave={() => setFlippedCards((prev) => { const next = new Set(prev); next.delete(i); return next; })}
-                onClick={() => toggleFlip(i)}
+                className="flip-card h-[320px] cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:h-[360px] lg:h-[420px]"
+                role="button"
+                tabIndex={0}
+                aria-pressed={isFlipped}
+                aria-label={`${isFlipped ? "Hide" : "Show"} ${dest.itinerary.days} for ${dest.name}`}
+                onMouseEnter={() => {
+                  if (window.matchMedia("(hover: hover)").matches) {
+                    setFlippedCards((prev) => new Set(prev).add(i));
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (window.matchMedia("(hover: hover)").matches) {
+                    setFlippedCards((prev) => { const next = new Set(prev); next.delete(i); return next; });
+                  }
+                }}
+                onClick={() => {
+                  if (window.matchMedia("(hover: none)").matches) toggleFlip(i);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleFlip(i);
+                  }
+                }}
                 data-testid={`card-destination-${i}`}
               >
                 <div className={`flip-card-inner ${isFlipped ? "flipped" : ""}`}>
@@ -176,7 +171,7 @@ export function FeaturedDestinations() {
                       <h3 className="text-2xl md:text-3xl font-serif text-white mb-2">{dest.name}</h3>
                       <p className="text-white/80 mb-4 font-light max-w-sm">{dest.tagline}</p>
                       <div className="flex items-center gap-1.5 text-xs text-white/60">
-                        <span>Tap or hover to reveal itinerary</span>
+                        <span>Tap or hover to see the highlights</span>
                         <ArrowRight className="w-3 h-3" />
                       </div>
                     </div>
@@ -187,7 +182,7 @@ export function FeaturedDestinations() {
                     style={{ background: "linear-gradient(135deg, hsl(330 60% 9%) 0%, hsl(330 55% 13%) 100%)", border: "1px solid rgba(255,255,255,0.1)" }}
                   >
                     <div className="absolute inset-0 bg-cover bg-center opacity-10 rounded-xl" style={{ backgroundImage: `url(${dest.image})` }} />
-                    <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8">
+                    <div className="absolute inset-0 flex flex-col overflow-y-auto p-6 sm:p-8">
                       <div>
                         <div className="flex items-center gap-2 mb-4">
                           <MapPin className="w-4 h-4 text-primary" />
@@ -203,11 +198,6 @@ export function FeaturedDestinations() {
                           ))}
                         </ul>
                       </div>
-                      <button className="flex items-center text-primary text-sm font-medium hover:text-primary/80 transition-colors group mt-6">
-                        <Clock className="w-4 h-4 mr-2" />
-                        Build full itinerary with AI
-                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -215,7 +205,6 @@ export function FeaturedDestinations() {
             );
           })}
         </div>
-      </div>
-    </section>
+    </div>
   );
 }

@@ -46,51 +46,20 @@ const itineraries = [
 
 export function CuratedItineraries() {
   return (
-    <section id="itineraries" className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <section id="itineraries" aria-labelledby="itinerary-collection-heading" className="relative mt-14 overflow-hidden bg-background md:mt-20">
       <div className="absolute top-0 left-[-20%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8">
-          <div className="max-w-3xl">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-primary font-medium tracking-widest uppercase text-sm mb-4 block"
-            >
-              AI-Crafted Journeys
-            </motion.span>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-serif text-foreground mb-4 leading-tight"
-            >
-              Itineraries built for <span className="italic">your exact taste.</span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-foreground/70 text-lg font-light"
-            >
-              Start with our masterpieces, then let our AI tune them to your preferences down to the finest detail.
-            </motion.p>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <Link href="/itineraries">
-              <span className="flex items-center text-foreground/80 hover:text-primary transition-colors group cursor-pointer font-medium whitespace-nowrap">
-                View all itineraries
-                <ArrowRight className="w-5 h-5 ml-3 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Link>
-          </motion.div>
+        <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+          <h3 id="itinerary-collection-heading" className="font-serif text-2xl text-foreground md:text-3xl">
+            Ready-made itineraries
+          </h3>
+          <Link href="/itineraries">
+            <span className="group inline-flex cursor-pointer items-center font-medium text-foreground/80 transition-colors hover:text-primary">
+              View all itineraries
+              <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
