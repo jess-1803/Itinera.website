@@ -1,3 +1,13 @@
+import kyotoImg from "../assets/destinations/kyoto.png";
+import amalfiImg from "../assets/destinations/amalfi.png";
+import moroccoImg from "../assets/destinations/morocco.png";
+import patagoniaImg from "../assets/destinations/patagonia.png";
+import nisekoImg from "../assets/itineraries/niseko.png";
+import whistlerImg from "../assets/itineraries/whistler.png";
+import euroSummerImg from "../assets/itineraries/euro-summer.png";
+import queenstownImg from "../assets/itineraries/queenstown.png";
+import croatiaImg from "../assets/itineraries/croatia.png";
+
 export interface ItineraryDay {
   day: number;
   title: string;
@@ -305,7 +315,7 @@ export const ITINERARIES: ItineraryFull[] = [
     bestTime: "Oct – April",
     groupSize: "Solo, couple or small group",
     imageKey: "morocco",
-    coverImage: "https://images.unsplash.com/photo-1539020140153-e479b8f22986?q=80&w=1600&auto=format&fit=crop",
+    coverImage: moroccoImg,
     intro:
       "Morocco moves at its own rhythm. This route trades the Marrakech tourist trail for the lived-in reality of Fez's 9,000-alley medina, the silence of the Sahara before dawn, and the cedar forests of the Middle Atlas. It rewards curiosity and patience in equal measure.",
     highlights: [
@@ -631,6 +641,512 @@ export const ITINERARIES: ItineraryFull[] = [
           { time: "12:00", description: "Transfer to Tan Son Nhat International Airport" },
         ],
       },
+    ],
+  },
+  {
+    id: "kyoto",
+    title: "Kyoto, Slowly",
+    subtitle: "Five days of temple mornings, quiet lanes, and seasonal cooking in Japan's old capital.",
+    duration: "5 Days",
+    style: "Culture & Slow Travel",
+    bestTime: "March – May, Oct – Nov",
+    groupSize: "Solo or couple",
+    imageKey: "kyoto",
+    coverImage: kyotoImg,
+    intro: "Kyoto reveals itself early and on foot. This five-day route gives the city's temples and neighbourhoods room to breathe, pairing its best-known landmarks with small craft shops, riverside walks, and unhurried meals.",
+    highlights: [
+      "Fushimi Inari before the morning crowds",
+      "Arashiyama bamboo grove and riverside walk",
+      "Tea ceremony in a Gion machiya",
+      "Nishiki Market with a local food guide",
+      "Higashiyama's temple lanes at dusk",
+    ],
+    days: [
+      { day: 1, title: "Arrival in Higashiyama", activities: [
+        { time: "14:00", description: "Check in to a small ryokan near the eastern hills and settle in over tea." },
+        { time: "16:00", description: "Walk the old lanes around Kiyomizu-dera as the afternoon light softens." },
+        { time: "19:00", description: "Try a seasonal kaiseki dinner, with dishes built around the day's market produce." },
+      ] },
+      { day: 2, title: "Torii Gates & Old Streets", activities: [
+        { time: "06:30", description: "Visit Fushimi Inari early and follow the lower forest trail before it gets busy." },
+        { time: "10:00", description: "Return through Fushimi for a sake-brewery tasting and a relaxed lunch." },
+        { time: "15:00", description: "Browse the pottery studios and small shops of Sannenzaka and Ninenzaka." },
+        { time: "18:30", description: "Watch the lanterns come on around Yasaka Shrine and Gion." },
+      ] },
+      { day: 3, title: "Arashiyama & the Katsura River", activities: [
+        { time: "07:00", description: "Walk through the bamboo grove while the paths are still quiet." },
+        { time: "09:00", description: "Visit Tenryu-ji's garden, then take the riverside path toward Togetsukyo Bridge." },
+        { time: "13:00", description: "Have a simple soba lunch near the river before returning to central Kyoto." },
+        { time: "16:00", description: "Leave the late afternoon open for a riverside stroll or a rest at the ryokan." },
+      ] },
+      { day: 4, title: "Markets, Gardens & Tea", activities: [
+        { time: "09:00", description: "Explore Nishiki Market with a local guide, tasting pickles, tofu, and seasonal sweets." },
+        { time: "13:00", description: "Spend a quiet hour among the moss gardens at Nanzen-ji." },
+        { time: "16:00", description: "Join a small tea ceremony in a traditional Gion machiya." },
+        { time: "19:00", description: "Choose a neighbourhood izakaya for dinner and a final evening walk." },
+      ] },
+      { day: 5, title: "Northern Temples & Departure", activities: [
+        { time: "08:00", description: "Visit the Philosopher's Path and its small temples before the day warms up." },
+        { time: "11:00", description: "Stop at a local café for a last matcha and a slow breakfast." },
+        { time: "13:00", description: "Collect your bags and continue to Kyoto Station for departure." },
+      ] },
+    ],
+  },
+  {
+    id: "amalfi",
+    title: "The Amalfi Coast, by Sea and Foot",
+    subtitle: "Four days of cliffside villages, lemon groves, and long lunches above the Mediterranean.",
+    duration: "4 Days",
+    style: "Coast & Food",
+    bestTime: "May – June, Sept – Oct",
+    groupSize: "Couple or small group",
+    imageKey: "amalfi",
+    coverImage: amalfiImg,
+    intro: "The coast is best experienced at a gentler pace: early walks before the roads fill, ferries between villages, and enough time to linger over lunch. This short route keeps one base and lets the coastline set the rhythm.",
+    highlights: [
+      "Arrive in Positano by ferry",
+      "Walk a section of the Path of the Gods",
+      "Ravello gardens and villa terraces",
+      "A small-group lemon grove visit",
+      "Sunset dinner in Amalfi town",
+    ],
+    days: [
+      { day: 1, title: "Arrive by Water", activities: [
+        { time: "13:00", description: "Take the ferry into Positano and check in to a family-run guesthouse above the beach." },
+        { time: "16:00", description: "Explore the quieter upper lanes, stopping at a ceramic workshop along the way." },
+        { time: "19:30", description: "Dinner on a terrace overlooking the water: grilled local fish, vegetables, and an early night." },
+      ] },
+      { day: 2, title: "The Path of the Gods", activities: [
+        { time: "07:30", description: "Transfer to Bomerano for a guided walk along the easier, scenic section of the Sentiero degli Dei." },
+        { time: "11:30", description: "Pause in Nocelle for fresh lemonade and a view back over the coast." },
+        { time: "14:00", description: "Return to Positano for a late lunch and a swim at the beach." },
+        { time: "19:00", description: "Try handmade pasta at a small trattoria away from the waterfront." },
+      ] },
+      { day: 3, title: "Amalfi & Ravello", activities: [
+        { time: "09:00", description: "Take the ferry to Amalfi and visit the cathedral and cloister before the midday rush." },
+        { time: "12:00", description: "Share a long lunch in town, then ride up to Ravello by local bus." },
+        { time: "15:00", description: "Walk the gardens at Villa Rufolo and Villa Cimbrone at an easy pace." },
+        { time: "19:30", description: "Return to Amalfi for a sunset dinner near the old harbour." },
+      ] },
+      { day: 4, title: "Lemon Groves & Departure", activities: [
+        { time: "09:00", description: "Visit a small lemon grove above the coast and learn how sfusato lemons are grown." },
+        { time: "11:30", description: "Pick up pastries and take one last walk along the waterfront." },
+        { time: "13:00", description: "Continue by ferry or transfer to your next stop." },
+      ] },
+    ],
+  },
+  {
+    id: "cappadocia",
+    title: "Cappadocia at First Light",
+    subtitle: "Four days among cave dwellings, valley trails, and the volcanic landscapes of central Türkiye.",
+    duration: "4 Days",
+    style: "Landscape & Culture",
+    bestTime: "April – June, Sept – Oct",
+    groupSize: "Solo, couple or small group",
+    imageKey: "cappadocia",
+    coverImage: "https://images.unsplash.com/photo-1570939274717-7eda259b50ed?q=80&w=1600&auto=format&fit=crop",
+    intro: "Cappadocia is more than a balloon flight. Stay in one village, explore the valleys on foot with a local guide, and make time for the region's rock-cut churches, underground history, and evening light.",
+    highlights: [
+      "Optional sunrise balloon flight over Göreme",
+      "Cave hotel stay with valley views",
+      "Göreme Open-Air Museum with a local guide",
+      "Kaymakli underground city",
+      "Sunset walk through the Red and Rose Valleys",
+    ],
+    days: [
+      { day: 1, title: "Göreme & the Cave Valleys", activities: [
+        { time: "14:00", description: "Check in to a locally owned cave hotel and get oriented in Göreme." },
+        { time: "16:30", description: "Walk the nearby viewpoints and learn how the soft volcanic stone shaped local homes." },
+        { time: "19:30", description: "Dinner at a family-run restaurant featuring pottery kebab and regional vegetables." },
+      ] },
+      { day: 2, title: "The Valleys at Sunrise", activities: [
+        { time: "05:00", description: "Take an optional balloon flight, weather permitting; otherwise watch the launch from a valley viewpoint." },
+        { time: "09:30", description: "Visit the Göreme Open-Air Museum with a local guide, focusing on the painted rock churches." },
+        { time: "14:30", description: "Rest during the warmest part of the day, then walk through Love Valley in the late afternoon." },
+        { time: "19:00", description: "Enjoy a quiet dinner back in town." },
+      ] },
+      { day: 3, title: "Underground History", activities: [
+        { time: "09:00", description: "Drive to Kaymakli and explore its underground rooms with a licensed local guide." },
+        { time: "12:30", description: "Stop for lunch in a village garden before returning through the countryside." },
+        { time: "16:30", description: "Walk the Red and Rose Valleys as the rock changes colour in the evening light." },
+        { time: "20:00", description: "Share a regional meal and a glass of local wine on the hotel terrace." },
+      ] },
+      { day: 4, title: "Uçhisar & Departure", activities: [
+        { time: "08:30", description: "Climb to Uçhisar Castle for a final wide view across the valleys." },
+        { time: "11:00", description: "Browse small workshops in Avanos, known for its pottery traditions." },
+        { time: "14:00", description: "Transfer to the airport for your onward journey." },
+      ] },
+    ],
+  },
+  {
+    id: "rajasthan",
+    title: "Rajasthan: Forts, Lakes & Desert",
+    subtitle: "Seven days linking Jaipur, Jodhpur, and Udaipur through the colours and craft traditions of Rajasthan.",
+    duration: "7 Days",
+    style: "Culture & Heritage",
+    bestTime: "October – March",
+    groupSize: "Couple or small group",
+    imageKey: "rajasthan",
+    coverImage: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600&auto=format&fit=crop",
+    intro: "Rajasthan is best travelled with room for the road between its cities. This week-long route pairs historic forts with local markets, artisan workshops, and a slower finish beside Udaipur's lakes.",
+    highlights: [
+      "Amber Fort and the old lanes of Jaipur",
+      "Block-printing workshop with a local artisan",
+      "Mehrangarh Fort above Jodhpur's blue quarter",
+      "Desert sunset outside Jaisalmer",
+      "Udaipur's lake palaces and old city",
+    ],
+    days: [
+      { day: 1, title: "Jaipur's Old City", activities: [
+        { time: "14:00", description: "Settle into a restored haveli and take an orientation walk through the walled city." },
+        { time: "16:30", description: "See Hawa Mahal from the street and explore the bazaars with a local guide." },
+        { time: "19:30", description: "Try a Rajasthani thali at a neighbourhood restaurant." },
+      ] },
+      { day: 2, title: "Amber Fort & Jaipur Crafts", activities: [
+        { time: "08:00", description: "Visit Amber Fort early, taking time for the courtyards and hilltop views." },
+        { time: "12:00", description: "Return to Jaipur for lunch and a rest during the warmest hours." },
+        { time: "15:30", description: "Join a small block-printing workshop and learn about the region's textile patterns." },
+        { time: "19:00", description: "Walk to a rooftop for sunset over the old city." },
+      ] },
+      { day: 3, title: "Jaipur to Jodhpur", activities: [
+        { time: "08:30", description: "Travel by road to Jodhpur with a stop for lunch in a village along the way." },
+        { time: "15:00", description: "Check in near the old city and walk the blue lanes at a relaxed pace." },
+        { time: "19:30", description: "Dinner in a family-run restaurant beneath the fort walls." },
+      ] },
+      { day: 4, title: "Mehrangarh & the Blue City", activities: [
+        { time: "08:30", description: "Explore Mehrangarh Fort with time for the museum and the views over Jodhpur." },
+        { time: "12:30", description: "Have lunch in the old city, then browse the spice and textile markets." },
+        { time: "16:30", description: "Visit Jaswant Thada before returning to the blue quarter for evening light." },
+      ] },
+      { day: 5, title: "Desert Road to Jaisalmer", activities: [
+        { time: "08:00", description: "Drive west through the Thar region, stopping at small settlements en route." },
+        { time: "14:00", description: "Check in to a heritage stay near Jaisalmer Fort and explore its lanes." },
+        { time: "17:00", description: "Head to the dunes for a quiet sunset walk; overnight in town for a lighter footprint." },
+      ] },
+      { day: 6, title: "Jaisalmer to Udaipur", activities: [
+        { time: "08:00", description: "Visit the fort and its carved havelis before the day warms up." },
+        { time: "11:00", description: "Travel toward Udaipur, breaking the long journey for lunch and a leg stretch." },
+        { time: "19:00", description: "Arrive at a small guesthouse near Lake Pichola." },
+      ] },
+      { day: 7, title: "Udaipur & Departure", activities: [
+        { time: "08:30", description: "Visit the City Palace and its courtyards overlooking the lake." },
+        { time: "11:30", description: "Take a short boat ride and leave time for a final café stop in the old city." },
+        { time: "14:00", description: "Transfer to the airport or continue your journey." },
+      ] },
+    ],
+  },
+  {
+    id: "patagonia",
+    title: "Patagonia: Trails at the Edge of the World",
+    subtitle: "Six days of mountain paths, glacier water, and quiet estancias in Chilean Patagonia.",
+    duration: "6 Days",
+    style: "Hiking & Wilderness",
+    bestTime: "November – March",
+    groupSize: "Small group",
+    imageKey: "patagonia",
+    coverImage: patagoniaImg,
+    intro: "Patagonia asks for flexibility: weather changes quickly, and the best days leave space to linger. This Chile-focused route uses Puerto Natales as a base for Torres del Paine, with a mix of guided walks and restorative time in town.",
+    highlights: [
+      "Base in Puerto Natales with a local guide",
+      "A full-day walk in Torres del Paine",
+      "Grey Glacier boat excursion",
+      "Wildlife spotting along park roads",
+      "A working estancia visit and shared meal",
+    ],
+    days: [
+      { day: 1, title: "Arrive in Puerto Natales", activities: [
+        { time: "15:00", description: "Check in to a small guesthouse and take a waterfront walk along the Última Esperanza Sound." },
+        { time: "17:00", description: "Meet your local guide to review weather, trail conditions, and layers for the week." },
+        { time: "19:30", description: "Dinner in town featuring local lamb or a seasonal vegetarian option." },
+      ] },
+      { day: 2, title: "Torres del Paine: The Viewpoints", activities: [
+        { time: "07:00", description: "Drive into the national park, stopping at Lago Sarmiento and Laguna Amarga viewpoints." },
+        { time: "10:00", description: "Take a moderate guided walk with views of the Paine massif; choose the route to suit conditions." },
+        { time: "13:00", description: "Picnic lunch outdoors, followed by a slower afternoon at Salto Grande waterfall." },
+        { time: "18:00", description: "Return to Puerto Natales for a warm meal and rest." },
+      ] },
+      { day: 3, title: "Grey Glacier", activities: [
+        { time: "08:00", description: "Travel to Lago Grey and board a boat excursion, weather permitting, to view the glacier safely from the water." },
+        { time: "13:00", description: "Have lunch near the lake and walk the shoreline if conditions allow." },
+        { time: "16:30", description: "Return to town with time to rest or browse local wool and craft shops." },
+      ] },
+      { day: 4, title: "The Paine Trails", activities: [
+        { time: "07:00", description: "Choose a full-day guided hike based on weather and fitness; pack layers, water, and a trail lunch." },
+        { time: "16:00", description: "Return to Puerto Natales and leave the evening open for recovery." },
+        { time: "19:30", description: "Share dinner with your guide and review the next day's conditions." },
+      ] },
+      { day: 5, title: "Estancia & Open Country", activities: [
+        { time: "09:00", description: "Visit a nearby working estancia and hear about life, wildlife, and conservation in the region." },
+        { time: "12:30", description: "Share a traditional lunch with your hosts." },
+        { time: "15:00", description: "Take an easy walk across the open steppe, keeping a respectful distance from wildlife." },
+        { time: "18:30", description: "Return to town for a final sunset along the waterfront." },
+      ] },
+      { day: 6, title: "Departure", activities: [
+        { time: "08:00", description: "Enjoy a slow breakfast and a final walk through the harbour district." },
+          { time: "10:30", description: "Transfer to the airport or bus terminal for your onward journey." },
+        ],
+      },
+    ],
+  },
+  {
+    id: "niseko-powder-trip",
+    title: "Niseko Powder & Onsen Days",
+    subtitle: "Six winter days pairing Hokkaido powder snow with warm onsens, great noodles, and time to explore beyond the slopes.",
+    duration: "6 Days",
+    style: "Snow & Culture",
+    bestTime: "December – February",
+    groupSize: "Friends or small group",
+    imageKey: "niseko",
+    coverImage: nisekoImg,
+    intro: "A first Japan ski trip should leave room for both the mountain and the local rhythm. Base yourself in Niseko, arrange gear and lift access in advance, and balance ski days with good food and a restorative soak. Snow, transport, and some activities are weather-dependent, so keep the plan flexible.",
+    highlights: [
+      "Ski or snowboard the Niseko United resorts",
+      "Book a beginner lesson or guided mountain day",
+      "Explore Hirafu's casual dining scene",
+      "Warm up at a local onsen",
+      "Optional day trip to Otaru or Sapporo",
+    ],
+    days: [
+      { day: 1, title: "Arrive in Sapporo", activities: [
+        { time: "15:00", description: "Arrive, settle in near Sapporo Station, and keep the first afternoon light." },
+        { time: "18:30", description: "Try a local soup curry or ramen shop, then check the next day's bus or train connection." },
+      ] },
+      { day: 2, title: "Into the Snow Country", activities: [
+        { time: "09:00", description: "Travel to Niseko using a pre-booked coach or rail-and-bus connection." },
+        { time: "15:00", description: "Check in, collect any pre-booked rental gear, and get oriented around Hirafu." },
+        { time: "18:30", description: "Share dinner nearby and check the mountain forecast before choosing tomorrow's terrain." },
+      ] },
+      { day: 3, title: "First Tracks, Your Pace", activities: [
+        { time: "08:30", description: "Start with a lesson or an easy warm-up run; follow resort signage and current lift and weather guidance." },
+        { time: "12:30", description: "Take a relaxed lunch break, then ski or ride terrain that matches your experience." },
+        { time: "17:00", description: "Return gear if needed and meet friends for a casual dinner in the village." },
+      ] },
+      { day: 4, title: "A Full Mountain Day", activities: [
+        { time: "08:30", description: "Choose a resort area together and spend the day on open, marked runs suited to the group." },
+        { time: "15:30", description: "Wrap up before you are tired, then warm up with a café stop or a swim at your accommodation." },
+        { time: "19:00", description: "Try a local izakaya or a simple noodle dinner; reserve ahead during busy weeks." },
+      ] },
+      { day: 5, title: "Onsen Reset or One More Lap", activities: [
+        { time: "09:00", description: "Choose a shorter ski session or take a slower morning to recover." },
+        { time: "13:00", description: "Visit an onsen that welcomes day visitors; check etiquette and entry rules before you go." },
+        { time: "18:00", description: "Have a final village dinner and pack for the return journey." },
+      ] },
+      { day: 6, title: "Back to Sapporo", activities: [
+        { time: "08:30", description: "Travel back to Sapporo, allowing extra time for winter road or rail conditions." },
+        { time: "13:00", description: "If timing allows, browse the market or enjoy one last café stop before onward travel." },
+      ] },
+    ],
+  },
+  {
+    id: "whistler-snow-week",
+    title: "Whistler Snow Week",
+    subtitle: "Five days of mountain laps, beginner-friendly coaching, and relaxed village evenings in British Columbia.",
+    duration: "5 Days",
+    style: "Snow & Adventure",
+    bestTime: "January – March",
+    groupSize: "Friends or small group",
+    imageKey: "whistler",
+    coverImage: whistlerImg,
+    intro: "Whistler works well for a friend-group trip because you can build the week around different comfort levels. Book transport, accommodation, lift access, and lessons early for peak dates; make mountain decisions based on the resort's current weather and trail reports.",
+    highlights: [
+      "Scenic coach transfer from Vancouver",
+      "Optional first-day ski or snowboard lesson",
+      "Choose terrain for each group's ability",
+      "Explore Whistler Village on foot",
+      "Keep a flexible rest day for budget and recovery",
+    ],
+    days: [
+      { day: 1, title: "Vancouver to the Village", activities: [
+        { time: "09:00", description: "Take a pre-booked coach from Vancouver to Whistler and enjoy the Sea-to-Sky views." },
+        { time: "14:00", description: "Check in, pick up any reserved equipment, and walk the village to get oriented." },
+        { time: "18:30", description: "Have an easy group dinner and confirm lesson, lift, and shuttle details for the morning." },
+      ] },
+      { day: 2, title: "First Day on Snow", activities: [
+        { time: "08:00", description: "Collect rentals and meet a qualified instructor for a lesson matched to your experience." },
+        { time: "12:30", description: "Take a proper lunch break, then continue only on runs suited to your group's ability." },
+        { time: "16:00", description: "Return to the village, dry equipment, and take the evening at an easy pace." },
+      ] },
+      { day: 3, title: "Choose Your Mountain", activities: [
+        { time: "08:30", description: "Check official lift and trail status, then split into smaller groups if abilities differ." },
+        { time: "12:00", description: "Meet for lunch and compare routes before heading back out." },
+        { time: "16:00", description: "Finish while everyone still has energy and regroup for a relaxed dinner." },
+      ] },
+      { day: 4, title: "A Day to Mix It Up", activities: [
+        { time: "09:00", description: "Pick another ski day, a snowshoe outing with a local operator, or a slower village morning." },
+        { time: "13:00", description: "Meet for a casual lunch and leave time for a rest or a walk through the village." },
+        { time: "18:30", description: "Share a final meal and check the next day's coach departure details." },
+      ] },
+      { day: 5, title: "Return to Vancouver", activities: [
+        { time: "08:00", description: "Check out and take the pre-booked coach back to Vancouver, allowing for winter travel conditions." },
+        { time: "13:00", description: "Continue to the airport or extend your trip in the city." },
+      ] },
+    ],
+  },
+  {
+    id: "euro-summer-rail",
+    title: "Euro Summer: Lisbon, Porto & Barcelona",
+    subtitle: "Nine days of tiled streets, late sunsets, easy rail connections, and a few well-earned beach afternoons.",
+    duration: "9 Days",
+    style: "City Hopping & Food",
+    bestTime: "May – June, Sept – Oct",
+    groupSize: "Friends or solo",
+    imageKey: "euro-summer",
+    coverImage: euroSummerImg,
+    intro: "A three-city summer trip can feel big without changing hotels every night. Set aside a few days for Lisbon, take the train north to Porto, then fly onward to Barcelona. Book longer-distance transport ahead, use local transit, and leave free time for neighbourhoods rather than trying to see everything.",
+    highlights: [
+      "Lisbon viewpoints and neighbourhood cafés",
+      "A simple day trip to Sintra by train",
+      "Porto riverside walks and tiled architecture",
+      "Barcelona's markets and beach time",
+      "Three bases with breathing room between travel days",
+    ],
+    days: [
+      { day: 1, title: "Lisbon Arrival", activities: [
+        { time: "15:00", description: "Check in near a transit line, take an easy orientation walk, and pick up a local travel card." },
+        { time: "19:00", description: "Have dinner close to your stay and keep the evening open after travel." },
+      ] },
+      { day: 2, title: "Lisbon by Neighbourhood", activities: [
+        { time: "09:00", description: "Explore Baixa and Chiado on foot, stopping for coffee and a pastel de nata." },
+        { time: "13:00", description: "Take a break for lunch, then ride local transit toward Belém for riverside sights." },
+        { time: "18:30", description: "Find a viewpoint for sunset and choose a casual dinner spot nearby." },
+      ] },
+      { day: 3, title: "Sintra or a Slow City Day", activities: [
+        { time: "08:30", description: "Optional day trip to Sintra by train; reserve timed-entry tickets for any palaces you want to visit." },
+        { time: "15:30", description: "Return to Lisbon for a rest, or stay in the city for a relaxed museum-and-café day." },
+        { time: "19:00", description: "Share a low-key dinner and pack for tomorrow's train." },
+      ] },
+      { day: 4, title: "Train to Porto", activities: [
+        { time: "09:00", description: "Take a pre-booked train north to Porto and check in near the centre." },
+        { time: "14:00", description: "Walk the riverside Ribeira district and cross the Dom Luís I Bridge on foot." },
+        { time: "19:00", description: "Try a local casual restaurant and keep the evening unplanned." },
+      ] },
+      { day: 5, title: "Porto, Slowly", activities: [
+        { time: "09:00", description: "Visit São Bento station and explore the surrounding streets before they get busy." },
+        { time: "13:00", description: "Take a long lunch, then browse independent shops or relax in a garden." },
+        { time: "18:30", description: "Watch the light change along the Douro and enjoy dinner near your stay." },
+      ] },
+      { day: 6, title: "Onward to Barcelona", activities: [
+        { time: "09:00", description: "Travel to the airport and take a pre-booked flight to Barcelona; schedules vary by season." },
+        { time: "15:00", description: "Check in near a metro stop and explore the neighbourhood on foot." },
+        { time: "19:30", description: "Find a simple tapas dinner and get familiar with the local transit system." },
+      ] },
+      { day: 7, title: "Barcelona's Streets & Markets", activities: [
+        { time: "09:00", description: "Walk the Gothic Quarter early, then visit a market for a relaxed lunch." },
+        { time: "14:30", description: "Explore Eixample's architecture; reserve timed-entry attractions in advance." },
+        { time: "19:00", description: "Choose dinner in a residential neighbourhood away from the busiest squares." },
+      ] },
+      { day: 8, title: "A Free Day by the Water", activities: [
+        { time: "10:00", description: "Take the metro to a public beach or choose a slow café morning." },
+        { time: "15:00", description: "Leave the afternoon open for a museum, a park, or a rest before the final night." },
+        { time: "20:00", description: "Share a final meal and confirm airport transport for departure." },
+      ] },
+      { day: 9, title: "Departure", activities: [
+        { time: "08:00", description: "Have breakfast near your stay, then travel to the airport with time to spare." },
+        { time: "11:00", description: "Depart Barcelona or continue your trip by rail to another city." },
+      ] },
+    ],
+  },
+  {
+    id: "queenstown-adventure",
+    title: "Queenstown: Big Views, Easy Days",
+    subtitle: "Six days of lake and mountain scenery, optional adrenaline, and enough downtime to enjoy the South Island.",
+    duration: "6 Days",
+    style: "Adventure & Outdoors",
+    bestTime: "November – March",
+    groupSize: "Friends or small group",
+    imageKey: "queenstown",
+    coverImage: queenstownImg,
+    intro: "Queenstown is famous for adventure activities, but the best trip does not need to be a checklist. Use town as a base, book licensed operators directly, check weather and transport conditions, and choose only the activities that fit your comfort level and budget.",
+    highlights: [
+      "Lake Wakatipu and the Queenstown waterfront",
+      "Optional guided adventure activity with a licensed operator",
+      "Scenic day trip to Glenorchy",
+      "A half-day walk with route choice for your ability",
+      "An unhurried café and recovery day",
+    ],
+    days: [
+      { day: 1, title: "Arrive by the Lake", activities: [
+        { time: "14:00", description: "Check in near town, pick up groceries, and walk the Queenstown waterfront." },
+        { time: "18:30", description: "Grab a casual dinner and review local weather and shuttle options for the week." },
+      ] },
+      { day: 2, title: "Choose Your Adventure", activities: [
+        { time: "09:00", description: "Book an optional activity such as a guided jet-boat trip or bungy experience with a licensed operator." },
+        { time: "13:00", description: "Have lunch in town and leave the afternoon free to rest or explore at your own pace." },
+        { time: "18:30", description: "Meet your group for dinner; no activity is essential to enjoy the day." },
+      ] },
+      { day: 3, title: "Glenorchy Road Trip", activities: [
+        { time: "09:00", description: "Take a pre-booked shuttle or rental car along the lake to Glenorchy, checking road conditions first." },
+        { time: "11:00", description: "Choose a short local walk or simply enjoy the lagoon boardwalk and mountain views." },
+        { time: "15:00", description: "Return to Queenstown before dark and take the evening easy." },
+      ] },
+      { day: 4, title: "A Walk Above the Lake", activities: [
+        { time: "08:30", description: "Choose a marked walking track suited to your fitness and check current track conditions." },
+        { time: "13:00", description: "Return to town for lunch, then use the afternoon for a swim, a nap, or a gondola ride." },
+        { time: "19:00", description: "Try a casual local favourite and share photos from the day." },
+      ] },
+      { day: 5, title: "Arrowtown or a Free Day", activities: [
+        { time: "10:00", description: "Take a local bus to Arrowtown for its historic main street and riverside walk." },
+        { time: "14:00", description: "Return to Queenstown with time for a café stop, lakeside picnic, or rest." },
+        { time: "18:30", description: "Enjoy a final group dinner and keep plans flexible around the forecast." },
+      ] },
+      { day: 6, title: "Departure", activities: [
+        { time: "08:30", description: "Take a last lakeside walk and have breakfast close to your stay." },
+        { time: "11:00", description: "Transfer to the airport or continue your South Island journey." },
+      ] },
+    ],
+  },
+  {
+    id: "croatia-island-hop",
+    title: "Croatia: Split, Hvar & Dubrovnik",
+    subtitle: "Seven sun-soaked days between stone old towns, clear-water swims, and unhurried Adriatic ferry rides.",
+    duration: "7 Days",
+    style: "Coast & Island Hopping",
+    bestTime: "May – June, Sept",
+    groupSize: "Friends or small group",
+    imageKey: "croatia",
+    coverImage: croatiaImg,
+    intro: "This Adriatic route keeps to three bases so you can spend more time swimming and less time packing. Ferry routes and frequency change by season, so check current schedules and book key legs early; keep a little flexibility for wind or delays.",
+    highlights: [
+      "Split's Diocletian's Palace and waterfront",
+      "Two nights based on Hvar Island",
+      "A boat day or public beach day, weather permitting",
+      "Dubrovnik's old town outside the midday rush",
+      "Public ferries and free time built into the route",
+    ],
+    days: [
+      { day: 1, title: "Arrive in Split", activities: [
+        { time: "15:00", description: "Check in near the old town or ferry port and get oriented on foot." },
+        { time: "18:30", description: "Walk the Riva promenade and find a casual dinner away from the busiest lanes." },
+      ] },
+      { day: 2, title: "Split's Old Town & Coast", activities: [
+        { time: "08:30", description: "Explore Diocletian's Palace early, then stop at a local bakery for breakfast." },
+        { time: "12:30", description: "Choose a museum, shaded café, or public beach for the warmest part of the day." },
+        { time: "18:00", description: "Walk up Marjan for a sunset view if the weather and energy allow." },
+      ] },
+      { day: 3, title: "Ferry to Hvar", activities: [
+        { time: "09:00", description: "Take a pre-booked ferry to Hvar; check the seasonal route and baggage rules." },
+        { time: "13:00", description: "Check in, explore the harbour, and find a swim spot for the afternoon." },
+        { time: "19:00", description: "Have dinner in town and keep the evening as lively or low-key as you like." },
+      ] },
+      { day: 4, title: "Hvar at Your Own Pace", activities: [
+        { time: "09:00", description: "Choose a public beach, a local bus ride to a quieter village, or a small-group boat trip." },
+        { time: "14:00", description: "Take a long lunch and leave time to swim or rest." },
+        { time: "18:30", description: "Walk to the hilltop fortress before sunset, then return for dinner." },
+      ] },
+      { day: 5, title: "On to Dubrovnik", activities: [
+        { time: "09:00", description: "Travel by ferry to Dubrovnik, confirming the current timetable before checkout." },
+        { time: "15:00", description: "Check in and take a gentle orientation walk outside the busiest old-town streets." },
+        { time: "19:00", description: "Choose a neighbourhood restaurant and get an early night after the transfer." },
+      ] },
+      { day: 6, title: "Dubrovnik & the Water", activities: [
+        { time: "08:00", description: "Walk the old town early; reserve city walls tickets if you plan to visit." },
+        { time: "13:00", description: "Take a swim break or ride local transit to a nearby coastal area." },
+        { time: "18:30", description: "Find a sunset viewpoint and enjoy a final shared dinner." },
+      ] },
+      { day: 7, title: "Departure", activities: [
+        { time: "08:00", description: "Have breakfast near your stay and allow time for airport or bus transfers." },
+        { time: "11:00", description: "Depart Dubrovnik or continue inland for another stop." },
+      ] },
     ],
   },
 ];

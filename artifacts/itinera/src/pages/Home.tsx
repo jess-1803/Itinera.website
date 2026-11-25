@@ -1,10 +1,8 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { FeaturedDestinations } from "@/components/FeaturedDestinations";
-import { CuratedItineraries } from "@/components/CuratedItineraries";
 import { AIPlanning } from "@/components/AIPlanning";
 import { TravelInspiration } from "@/components/TravelInspiration";
-import { HowItWorks } from "@/components/HowItWorks";
 import { Marketplace } from "@/components/Marketplace";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
@@ -24,22 +22,20 @@ export default function Home() {
                 Destinations that inspire. <span className="italic">Itineraries built for your taste.</span>
               </h2>
               <p className="mt-5 max-w-2xl text-base font-light leading-relaxed text-foreground/70 md:text-lg">
-                Flip a destination for a taste of the journey, or open a ready-made itinerary for its own day-by-day story.
+                Flip a card for a preview, then open the full day-by-day itinerary when you find your next destination.
               </p>
             </div>
-            <Link href="/destinations">
+            <Link href="/itineraries">
               <span className="group inline-flex shrink-0 cursor-pointer items-center font-medium text-foreground/80 transition-colors hover:text-primary">
-                Browse all destinations
+                Browse all itineraries
                 <span aria-hidden="true" className="ml-2 transition-transform group-hover:translate-x-1">→</span>
               </span>
             </Link>
           </div>
         </div>
         <FeaturedDestinations />
-        <CuratedItineraries />
-      </section>
+        </section>
       <AIPlanning />
-      <HowItWorks />
       <Marketplace />
       <TravelInspiration />
       <Newsletter />
