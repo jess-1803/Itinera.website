@@ -59,13 +59,12 @@ export function Navigation() {
               Discover
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
             </a>
-            <a
-              href={navHref("#itineraries")}
-              className={`text-sm font-medium ${isScrolled ? "text-foreground/80" : "text-white/90"} hover:text-primary transition-colors duration-300 relative group`}
-            >
-              Itineraries
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
-            </a>
+            <Link href="/itineraries">
+              <span className={`text-sm font-medium ${isScrolled ? "text-foreground/80" : "text-white/90"} hover:text-primary transition-colors duration-300 relative group cursor-pointer`}>
+                Itineraries
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+              </span>
+            </Link>
             <button
               onClick={() => scrollTo("marketplace")}
               className={`text-sm font-medium ${isScrolled ? "text-foreground/80" : "text-white/90"} hover:text-primary transition-colors duration-300 relative group`}
@@ -134,7 +133,7 @@ export function Navigation() {
             </div>
             <div className="flex-1 flex flex-col items-center justify-center space-y-8 text-2xl font-serif">
               <a href={navHref("#discover")} onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors">Discover</a>
-              <a href={navHref("#itineraries")} onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors">Itineraries</a>
+              <Link href="/itineraries"><span onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors cursor-pointer">Itineraries</span></Link>
               <button onClick={() => scrollTo("marketplace")} className="text-foreground/90 hover:text-primary transition-colors">Marketplace</button>
               <Link href="/journal"><span onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors cursor-pointer">Journal</span></Link>
               <Link href="/about"><span onClick={() => setMobileMenuOpen(false)} className="text-foreground/90 hover:text-primary transition-colors cursor-pointer">About us</span></Link>
